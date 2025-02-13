@@ -12,6 +12,27 @@
 
 @implementation NSMutableAttributedString (WY_Extension)
 
+/** 计算富文本显示需要的宽度 */
+- (CGFloat)calculateHeight:(NSAttributedString *)attributedText withHeight:(CGFloat)height {
+    // 计算文本所需的宽度
+    CGSize maxSize = CGSizeMake(CGFLOAT_MAX, height);  // 最大宽度为无穷大
+    CGRect boundingRect = [attributedText boundingRectWithSize:maxSize
+                                                       options:NSStringDrawingUsesLineFragmentOrigin | NSStringDrawingUsesFontLeading
+                                                       context:nil];
+    return CGRectGetWidth(boundingRect);  // 返回计算得到的宽度
+}
+
+/** 计算富文本显示需要的高度 */
+- (CGFloat)calculateHeight:(NSAttributedString *)attributedText withWidth:(CGFloat)width {
+    
+    // 计算文本所需的高度
+    CGSize maxSize = CGSizeMake(width, CGFLOAT_MAX);  // 最大高度为无穷大
+    CGRect boundingRect = [attributedText boundingRectWithSize:maxSize
+                                                       options:NSStringDrawingUsesLineFragmentOrigin | NSStringDrawingUsesFontLeading
+                                                       context:nil];
+    return CGRectGetHeight(boundingRect);  // 返回计算得到的高度
+}
+
 + (NSMutableAttributedString *)wy_attributeWithStr:(NSString *)str {
     
     return [[NSMutableAttributedString alloc] initWithString:[NSString stringWithFormat:@"%@",str]];

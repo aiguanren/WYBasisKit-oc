@@ -10,6 +10,12 @@
 
 @interface NSMutableAttributedString (WY_Extension)
 
+/** 计算富文本显示需要的宽度 */
+- (CGFloat)calculateHeight:(NSAttributedString *)attributedText withHeight:(CGFloat)height;
+
+/** 计算富文本显示需要的高度 */
+- (CGFloat)calculateHeight:(NSAttributedString *)attributedText withWidth:(CGFloat)width;
+
 /** 返回AttributedString属性 */
 + (NSMutableAttributedString *)wy_attributeWithStr:(NSString *)str;
 
