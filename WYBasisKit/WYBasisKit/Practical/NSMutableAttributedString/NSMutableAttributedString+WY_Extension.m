@@ -10,7 +10,7 @@
 #import "NSMutableParagraphStyle+WY_Extension.h"
 #include <objc/runtime.h>
 
-@implementation NSMutableAttributedString (WY_Extension)
+@implementation NSAttributedString (WY_Extension)
 
 /** 计算富文本显示需要的宽度 */
 - (CGFloat)calculateWidthWithHeight:(CGFloat)height {
@@ -32,6 +32,10 @@
                                                        context:nil];
     return CGRectGetHeight(boundingRect);  // 返回计算得到的高度
 }
+
+@end
+
+@implementation NSMutableAttributedString (WY_Extension)
 
 + (NSMutableAttributedString *)wy_attributeWithStr:(NSString *)str {
     

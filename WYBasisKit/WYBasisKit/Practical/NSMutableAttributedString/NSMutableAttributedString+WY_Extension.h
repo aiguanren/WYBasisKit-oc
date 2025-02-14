@@ -8,13 +8,17 @@
 
 #import <Foundation/Foundation.h>
 
-@interface NSMutableAttributedString (WY_Extension)
+@interface NSAttributedString (WY_Extension)
 
 /** 计算富文本显示需要的宽度 */
 - (CGFloat)calculateWidthWithHeight:(CGFloat)height;
 
 /** 计算富文本显示需要的高度 */
 - (CGFloat)calculateHeightWithWidth:(CGFloat)width;
+
+@end
+
+@interface NSMutableAttributedString (WY_Extension)
 
 /** 返回AttributedString属性 */
 + (NSMutableAttributedString *)wy_attributeWithStr:(NSString *)str;
