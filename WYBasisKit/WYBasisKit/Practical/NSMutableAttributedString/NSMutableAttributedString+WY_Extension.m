@@ -84,7 +84,11 @@
 
 - (void)wy_setLineSpacing:(CGFloat)lineSpacing string:(NSString *)string {
     
-    NSMutableParagraphStyle *paragraphStyle = [NSMutableParagraphStyle wy_paragraphStyle];
+    NSMutableParagraphStyle *paragraphStyle = ([self attribute:NSParagraphStyleAttributeName atIndex:0 effectiveRange:nil]);
+    if(paragraphStyle == nil) {
+        paragraphStyle = [NSMutableParagraphStyle wy_paragraphStyle];
+    }
+    
     [paragraphStyle setLineSpacing:lineSpacing];
     [self addAttribute:NSParagraphStyleAttributeName value:paragraphStyle range:[[NSString stringWithFormat:@"%@",self.string] rangeOfString:[NSString stringWithFormat:@"%@",string]]];
 }
