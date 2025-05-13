@@ -7,7 +7,7 @@
 //
 
 #import "TestTextViewViewController.h"
-#import "UITextView+WY_Extension.h"
+#import "UITextView+WYExtension.h"
 
 @interface TestTextViewViewController ()
 

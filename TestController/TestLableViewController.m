@@ -7,11 +7,11 @@
 //
 
 #import "TestLableViewController.h"
-#import "UILabel+WY_RichText.h"
-#import "NSMutableParagraphStyle+WY_Extension.h"
-#import "NSMutableAttributedString+WY_Extension.h"
+#import "UILabel+WYRichText.h"
+#import "NSMutableParagraphStyle+WYExtension.h"
+#import "NSMutableAttributedString+WYExtension.h"
 
-@interface TestLableViewController ()<WY_RichTextDelegate>
+@interface TestLableViewController ()<WYRichTextDelegate>
 
 @end
 

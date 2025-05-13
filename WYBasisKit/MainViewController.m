@@ -17,8 +17,9 @@
 #import "TestUserAvatarViewController.h"
 #import "TestPagingViewController.h"
 #import "TestUIAlertController.h"
-#import "NSString+WY_Extension.h"
-#import "UITableViewCell+WY_Extension.h"
+#import "NSString+WYExtension.h"
+#import "UITableViewCell+WYExtension.h"
+#import "WYTestVisualController.h"
 #import "TestCallMethodController.h"
 
 @interface MainViewController ()<UITableViewDelegate,UITableViewDataSource>
@@ -142,13 +143,16 @@
     else if (indexPath.row == 10) {
         vc = [[TestCallMethodController alloc] init];
     }
+    else if (indexPath.row == 11) {
+        vc = [[WYTestVisualController alloc] init];
+    }
     vc.navigationItem.title = [self section][indexPath.row];
     [self.navigationController pushViewController:vc animated:YES];
 }
 
 - (NSArray *)section {
     
-    NSArray *sectionTitleAry = @[@"WKWebView",@"UILable",@"UITextView",@"UITextField",@"UIButton",@"BoolJudge",@"LoadingState",@"userAvatar",@"pagingView",@"UIAlert", @"根据类名跨类调用方法"];
+    NSArray *sectionTitleAry = @[@"WKWebView",@"UILable",@"UITextView",@"UITextField",@"UIButton",@"BoolJudge",@"LoadingState",@"userAvatar",@"pagingView",@"UIAlert", @"根据类名跨类调用方法", @"圆角、边框、阴影、渐变"];
     
     return sectionTitleAry;
 }

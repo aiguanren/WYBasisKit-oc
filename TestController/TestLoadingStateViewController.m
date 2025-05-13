@@ -7,8 +7,8 @@
 //
 
 #import "TestLoadingStateViewController.h"
-#import "UITextField+WY_Extension.h"
-#import "UITableViewCell+WY_Extension.h"
+#import "UITextField+WYExtension.h"
+#import "UITableViewCell+WYExtension.h"
 
 @interface TestLoadingStateViewController ()<UITableViewDataSource,UITableViewDelegate>
 

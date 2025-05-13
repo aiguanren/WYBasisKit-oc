@@ -7,8 +7,8 @@
 //
 
 #import "TestTUIButtonViewController.h"
-#import "UIImage+wy_Extension.h"
-#import "UIButton+WY_EdgeInsets.h"
+#import "UIImage+wyExtension.h"
+#import "UIButton+WYEdgeInsets.h"
 
 @interface TestTUIButtonViewController ()
 
@@ -50,7 +50,7 @@
     btn2.wy_nImage = [UIImage wy_cutImage:[UIImage imageNamed:@"timg-n"] andSize:CGSizeMake(20, 30)];
     
     //通过EdgeInsets设置图片控件与文本控件的位置
-    [btn2 wy_layouEdgeInsetsPosition:WY_ButtonPositionImageTop_titleBottom spacing:10];
+    [btn2 wy_layouEdgeInsetsPosition:WYButtonPositionImageTop_titleBottom spacing:10];
     
     [self.view addSubview:btn2];
 }

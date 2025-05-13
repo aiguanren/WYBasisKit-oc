@@ -7,8 +7,8 @@
 //
 
 #import "TestUIAlertController.h"
-#import "UIViewController+WY_Alert.h"
-#import "NSMutableAttributedString+WY_Extension.h"
+#import "UIViewController+WYAlert.h"
+#import "NSMutableAttributedString+WYExtension.h"
 
 @interface TestUIAlertController ()
 

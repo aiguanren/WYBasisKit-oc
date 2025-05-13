@@ -7,7 +7,7 @@
 //
 
 #import "TestPagingViewController.h"
-#import "WY_PagingView.h"
+#import "WYPagingView.h"
 
 @interface TestPagingViewController ()
 
@@ -19,7 +19,7 @@
     [super viewDidLoad];
     // Do any additional setup after loading the view.
     
-    WY_PagingView *pagingView = [[WY_PagingView alloc]wy_initWithFrame:CGRectMake(0, 0, wy_screenWidth, wy_screenHeight-wy_navViewHeight) superViewController:self];
+    WYPagingView *pagingView = [[WYPagingView alloc]wy_initWithFrame:CGRectMake(0, 0, wy_screenWidth, wy_screenHeight-wy_navViewHeight) superViewController:self];
 //    pagingView.bar_Height = 80;
 //    pagingView.bar_Width = 120;
 //    pagingView.barButton_dividingSpace = 10;

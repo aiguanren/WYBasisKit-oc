@@ -7,7 +7,7 @@
 //
 
 #import "TestUserAvatarViewController.h"
-#import "UIImage+WY_UserAvatar.h"
+#import "UIImage+WYUserAvatar.h"
 
 @interface TestUserAvatarViewController ()
 

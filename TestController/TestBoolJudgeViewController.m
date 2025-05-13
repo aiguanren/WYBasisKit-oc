@@ -7,7 +7,7 @@
 //
 
 #import "TestBoolJudgeViewController.h"
-#import "NSString+WY_Emoji.h"
+#import "NSString+WYEmoji.h"
 
 @interface TestBoolJudgeViewController ()
 

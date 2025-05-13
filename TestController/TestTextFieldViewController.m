@@ -7,7 +7,7 @@
 //
 
 #import "TestTextFieldViewController.h"
-#import "UITextField+WY_Extension.h"
+#import "UITextField+WYExtension.h"
 
 @interface TestTextFieldViewController ()
 
