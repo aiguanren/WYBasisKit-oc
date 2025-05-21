@@ -214,16 +214,6 @@
     self.contentVerticalAlignment = UIControlContentVerticalAlignmentBottom;
 }
 
-- (instancetype)wy_initWithFrame:(CGRect)frame target:(id)target selector:(SEL)selector {
-    
-    if(self == [super initWithFrame:frame]) {
-        
-        [self addTarget:target action:selector forControlEvents:UIControlEventTouchUpInside];
-    }
-    
-    return self;
-}
-
 - (void)wy_addTarget:(id)target selector:(SEL)selector {
     
     [self addTarget:target action:selector forControlEvents:UIControlEventTouchUpInside];

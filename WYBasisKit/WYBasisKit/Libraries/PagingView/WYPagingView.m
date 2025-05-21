@@ -7,7 +7,7 @@
 //
 
 #import "WYPagingView.h"
-#import "UIButton+WYEdgeInsets.h"
+#import "UIButton+WYLayout.h"
 
 #define buttonTagBegin 100
 #define badgeTagBegin  1000
@@ -223,7 +223,7 @@
             UIImage *selectedImage = ([_wy_selerctedImageAry[i] isKindOfClass:[UIImage class]]) ? _wy_selerctedImageAry[i] : [UIImage imageNamed:_wy_selerctedImageAry[i]];
             [buttonItem setImage:selectedImage forState:UIControlStateSelected];
             
-            [buttonItem wy_layouEdgeInsetsPosition:WYButtonPositionImageTop_titleBottom spacing:_barButton_dividingSpace];
+            [buttonItem wy_adjustWithPosition:WYButtonPositionImageTopTitleBottom spacing:_barButton_dividingSpace];
             buttonItem.imageView.contentMode = UIViewContentModeCenter;
         }
         buttonItem.tag = buttonTagBegin+i;
@@ -344,7 +344,7 @@
     
     if((_wy_defaultImageAry.count == _wy_titleAry.count) && (_wy_selerctedImageAry.count == _wy_titleAry.count)) {
         
-        [_wy_currentButtonItem wy_layouEdgeInsetsPosition:WYButtonPositionImageTop_titleBottom spacing:_barButton_dividingSpace];
+        [_wy_currentButtonItem wy_adjustWithPosition:WYButtonPositionImageTopTitleBottom spacing:_barButton_dividingSpace];
     }
 }
 

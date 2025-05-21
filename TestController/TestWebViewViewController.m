@@ -8,7 +8,7 @@
 
 #import "TestWebViewViewController.h"
 #import "WKWebView+WYExtension.h"
-#import "UIButton+WYEdgeInsets.h"
+#import "UIButton+WYLayout.h"
 
 @interface TestWebViewViewController ()
 
@@ -28,7 +28,7 @@
         [itemButton setTitleColor:[UIColor orangeColor] forState:UIControlStateNormal];
         [itemButton setTitle:@"回首页" forState:UIControlStateNormal];
         [itemButton setImage:[UIImage imageNamed:@"返回按钮"] forState:UIControlStateNormal];
-        [itemButton wy_layouEdgeInsetsPosition:WYButtonPositionImageLeft_titleRight spacing:5];
+        [itemButton wy_adjustWithPosition:WYButtonPositionImageLeftTitleRight spacing:5];
         [itemButton sizeToFit];
     }];
 }

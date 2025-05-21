@@ -87,10 +87,6 @@ NS_ASSUME_NONNULL_BEGIN
 /** 设置按钮下对齐 */
 - (void)wy_bottomAlign;
 
-
-/** 初始化frame及点击事件 */
-- (instancetype)wy_initWithFrame:(CGRect)frame target:(id)target selector:(SEL)selector;
-
 /** 设置点击事件 */
 - (void)wy_addTarget:(id)target selector:(SEL)selector;
 

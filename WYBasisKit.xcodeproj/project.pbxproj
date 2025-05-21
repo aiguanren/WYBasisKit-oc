@@ -21,7 +21,7 @@
 		1F154C5D21ACFD7B00D1D830 /* UITextView+WYExtension.m in Sources */ = {isa = PBXBuildFile; fileRef = 1F154C5C21ACFD7B00D1D830 /* UITextView+WYExtension.m */; };
 		1F154C6021AD17E800D1D830 /* UITableView+WYExtension.m in Sources */ = {isa = PBXBuildFile; fileRef = 1F154C5F21AD17E800D1D830 /* UITableView+WYExtension.m */; };
 		1F154C6321AD196800D1D830 /* UIButton+WYExtension.m in Sources */ = {isa = PBXBuildFile; fileRef = 1F154C6221AD196800D1D830 /* UIButton+WYExtension.m */; };
-		1F154C6621AD22CF00D1D830 /* UIButton+WYEdgeInsets.m in Sources */ = {isa = PBXBuildFile; fileRef = 1F154C6521AD22CF00D1D830 /* UIButton+WYEdgeInsets.m */; };
+		1F154C6621AD22CF00D1D830 /* UIButton+WYLayout.m in Sources */ = {isa = PBXBuildFile; fileRef = 1F154C6521AD22CF00D1D830 /* UIButton+WYLayout.m */; };
 		1F154C6921AD258000D1D830 /* CALayer+WYExtension.m in Sources */ = {isa = PBXBuildFile; fileRef = 1F154C6821AD258000D1D830 /* CALayer+WYExtension.m */; };
 		1F154C6C21AD265600D1D830 /* UIImageView+WYExtension.m in Sources */ = {isa = PBXBuildFile; fileRef = 1F154C6B21AD265600D1D830 /* UIImageView+WYExtension.m */; };
 		1F154C6F21AD2FBB00D1D830 /* UILabel+WYExtension.m in Sources */ = {isa = PBXBuildFile; fileRef = 1F154C6E21AD2FBB00D1D830 /* UILabel+WYExtension.m */; };
@@ -111,8 +111,8 @@
 		1F154C5F21AD17E800D1D830 /* UITableView+WYExtension.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "UITableView+WYExtension.m"; sourceTree = "<group>"; };
 		1F154C6121AD196800D1D830 /* UIButton+WYExtension.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "UIButton+WYExtension.h"; sourceTree = "<group>"; };
 		1F154C6221AD196800D1D830 /* UIButton+WYExtension.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "UIButton+WYExtension.m"; sourceTree = "<group>"; };
-		1F154C6421AD22CF00D1D830 /* UIButton+WYEdgeInsets.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "UIButton+WYEdgeInsets.h"; sourceTree = "<group>"; };
-		1F154C6521AD22CF00D1D830 /* UIButton+WYEdgeInsets.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "UIButton+WYEdgeInsets.m"; sourceTree = "<group>"; };
+		1F154C6421AD22CF00D1D830 /* UIButton+WYLayout.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "UIButton+WYLayout.h"; sourceTree = "<group>"; };
+		1F154C6521AD22CF00D1D830 /* UIButton+WYLayout.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "UIButton+WYLayout.m"; sourceTree = "<group>"; };
 		1F154C6721AD258000D1D830 /* CALayer+WYExtension.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "CALayer+WYExtension.h"; sourceTree = "<group>"; };
 		1F154C6821AD258000D1D830 /* CALayer+WYExtension.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "CALayer+WYExtension.m"; sourceTree = "<group>"; };
 		1F154C6A21AD265600D1D830 /* UIImageView+WYExtension.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "UIImageView+WYExtension.h"; sourceTree = "<group>"; };
@@ -739,8 +739,8 @@
 			children = (
 				1F154C6121AD196800D1D830 /* UIButton+WYExtension.h */,
 				1F154C6221AD196800D1D830 /* UIButton+WYExtension.m */,
-				1F154C6421AD22CF00D1D830 /* UIButton+WYEdgeInsets.h */,
-				1F154C6521AD22CF00D1D830 /* UIButton+WYEdgeInsets.m */,
+				1F154C6421AD22CF00D1D830 /* UIButton+WYLayout.h */,
+				1F154C6521AD22CF00D1D830 /* UIButton+WYLayout.m */,
 			);
 			path = UIButton;
 			sourceTree = "<group>";
@@ -959,7 +959,7 @@
 				1F0C653422A279FF00A2DDE6 /* WYPagingView.m in Sources */,
 				6503F04D2BF1A99C0074498E /* TestCallMethodController.m in Sources */,
 				1F28304520D3B9B700624C76 /* WaterfallFlow.m in Sources */,
-				1F154C6621AD22CF00D1D830 /* UIButton+WYEdgeInsets.m in Sources */,
+				1F154C6621AD22CF00D1D830 /* UIButton+WYLayout.m in Sources */,
 				1F725D9321B77861007F4B80 /* UITabBar+WYBadge.m in Sources */,
 				1FE1D39F21D7156D00928FEB /* UIImage+WYUserAvatar.m in Sources */,
 				1F154C7821AD41C100D1D830 /* WKWebView+WYExtension.m in Sources */,
