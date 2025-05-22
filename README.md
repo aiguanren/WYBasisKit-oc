@@ -295,4 +295,4 @@ requestWayHttpsBothwayValidation,
 ```
 
 
-如您在使用过程中发现BUG,或有好的意见建议，可发邮件至mobileAppDvlp@icloud.com
+如您在使用过程中发现BUG,或有好的意见建议，可发邮件至aiguanren@icloud.com
