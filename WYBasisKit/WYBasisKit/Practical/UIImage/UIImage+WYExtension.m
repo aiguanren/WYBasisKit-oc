@@ -661,14 +661,20 @@
 }
 
 + (UIImage *)wy_createImage:(UIColor *)imageColor {
+    return [self wy_createImage:imageColor imageSize:CGSizeMake(1, 1)];
+}
+
++ (UIImage *)wy_createImage:(UIColor *)imageColor imageSize:(CGSize)imageSize {
     
-    CGRect rect = CGRectMake(0.0f, 0.0f, 1.0f, 1.0f);
-    UIGraphicsBeginImageContext(rect.size);
-    CGContextRef context = UIGraphicsGetCurrentContext();
+    if (!imageColor || imageSize.width <= 0 || imageSize.height <= 0) {
+        return nil;
+    }
     
-    CGContextSetFillColorWithColor(context, [imageColor CGColor]);
-    CGContextFillRect(context, rect);
+    CGRect rect = CGRectMake(0, 0, imageSize.width, imageSize.height);
     
+    UIGraphicsBeginImageContextWithOptions(imageSize, NO, 0);
+    [imageColor setFill];
+    UIRectFill(rect);
     UIImage *image = UIGraphicsGetImageFromCurrentImageContext();
     UIGraphicsEndImageContext();
     

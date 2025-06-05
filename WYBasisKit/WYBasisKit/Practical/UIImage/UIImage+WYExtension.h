@@ -191,8 +191,11 @@ typedef NS_ENUM(NSUInteger, WYGradientType) {
 /** 根据视频url获取第一帧图片*/
 + (UIImage *)wy_videoPreViewImage:(NSURL *)path;
 
-/** 根据给定的颜色生成图片*/
+/** 根据给定的颜色生成图片，默认尺寸为 1x1*/
 + (UIImage *)wy_createImage:(UIColor *)imageColor;
+
+/** 根据给定的颜色生成图片*/
++ (UIImage *)wy_createImage:(UIColor *)imageColor imageSize:(CGSize)imageSize;
 
 /**
  通过渐变色生成图片
