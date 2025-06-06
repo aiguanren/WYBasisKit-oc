@@ -13,7 +13,7 @@
 @implementation NSAttributedString (WYExtension)
 
 /** 计算富文本显示需要的宽度 */
-- (CGFloat)calculateWidthWithHeight:(CGFloat)height {
+- (CGFloat)wy_calculateWidthWithHeight:(CGFloat)height {
     // 计算文本所需的宽度
     CGSize maxSize = CGSizeMake(CGFLOAT_MAX, height);  // 最大宽度为无穷大
     CGRect boundingRect = [self boundingRectWithSize:maxSize
@@ -23,7 +23,7 @@
 }
 
 /** 计算富文本显示需要的高度 */
-- (CGFloat)calculateHeightWithWidth:(CGFloat)width {
+- (CGFloat)wy_calculateHeightWithWidth:(CGFloat)width {
     
     // 计算文本所需的高度
     CGSize maxSize = CGSizeMake(width, CGFLOAT_MAX);  // 最大高度为无穷大

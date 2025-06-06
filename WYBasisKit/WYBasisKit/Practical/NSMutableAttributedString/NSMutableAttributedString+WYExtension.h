@@ -11,10 +11,10 @@
 @interface NSAttributedString (WYExtension)
 
 /** 计算富文本显示需要的宽度 */
-- (CGFloat)calculateWidthWithHeight:(CGFloat)height;
+- (CGFloat)wy_calculateWidthWithHeight:(CGFloat)height;
 
 /** 计算富文本显示需要的高度 */
-- (CGFloat)calculateHeightWithWidth:(CGFloat)width;
+- (CGFloat)wy_calculateHeightWithWidth:(CGFloat)width;
 
 @end
 

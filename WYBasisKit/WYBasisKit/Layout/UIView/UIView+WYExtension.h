@@ -80,6 +80,9 @@ typedef NS_ENUM(NSInteger, WYGradientDirection) {
 /** 添加收起键盘的手势 */
 - (void)wy_gestureHidingkeyboard;
 
+/// View延时几秒才能再次点击
+- (void)wy_temporarilyDisableWithDuration:(NSTimeInterval)duration;
+
 @end
 
 @interface UIView (WYVisual)
