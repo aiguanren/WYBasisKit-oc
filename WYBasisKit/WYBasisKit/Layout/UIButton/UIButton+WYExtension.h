@@ -90,6 +90,9 @@ NS_ASSUME_NONNULL_BEGIN
 /** 设置点击事件 */
 - (void)wy_addTarget:(id)target selector:(SEL)selector;
 
+/// 按钮延时几秒才能再次点击
+- (void)temporarilyDisableWithDuration:(NSTimeInterval)duration;
+
 @end
 
 NS_ASSUME_NONNULL_END

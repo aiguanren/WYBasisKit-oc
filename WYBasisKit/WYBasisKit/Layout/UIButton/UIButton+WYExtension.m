@@ -219,4 +219,12 @@
     [self addTarget:target action:selector forControlEvents:UIControlEventTouchUpInside];
 }
 
+- (void)temporarilyDisableWithDuration:(NSTimeInterval)duration {
+    self.userInteractionEnabled = NO;
+    dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(duration * NSEC_PER_SEC)),
+                   dispatch_get_main_queue(), ^{
+        self.userInteractionEnabled = YES;
+    });
+}
+
 @end

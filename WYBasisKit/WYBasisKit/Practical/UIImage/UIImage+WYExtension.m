@@ -688,7 +688,7 @@
         [array addObject:(id)color.CGColor];
     }
     array = (NSMutableArray *)[[array reverseObjectEnumerator] allObjects];
-    UIGraphicsBeginImageContextWithOptions(imageSize, YES, 1);
+    UIGraphicsBeginImageContextWithOptions(imageSize, NO, 1);
     CGContextRef context = UIGraphicsGetCurrentContext();
     CGContextSaveGState(context);
     //    CGColorSpaceRef colorSpace = CGColorGetColorSpace([[colors lastObject] CGColor]);
