@@ -2,8 +2,8 @@
 //  NSString+WYExtension.m
 //  WYBasisKit
 //
-//  Created by jacke-xu on 17/2/12.
-//  Copyright © 2017年 com.jacke-xu. All rights reserved.
+//  Created by guanren on 17/2/12.
+//  Copyright © 2017年 com.guanren. All rights reserved.
 //
 
 #import "NSString+WYExtension.h"

@@ -2,8 +2,8 @@
 //  WaterfallFlow.m
 //  WYBasisKit
 //
-//  Created by jacke-xu on 2017/7/7.
-//  Copyright © 2017年 jacke-xu. All rights reserved.
+//  Created by guanren on 2017/7/7.
+//  Copyright © 2017年 guanren. All rights reserved.
 //
 
 #import "WaterfallFlow.h"

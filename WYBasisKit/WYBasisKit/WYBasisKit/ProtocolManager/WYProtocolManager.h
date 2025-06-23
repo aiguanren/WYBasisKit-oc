@@ -3,7 +3,7 @@
 //  WYBasisKit
 //
 //  Created by Miraitowa on 2021/7/9.
-//  Copyright © 2021 jacke-xu. All rights reserved.
+//  Copyright © 2021 guanren. All rights reserved.
 //
 
 #import <Foundation/Foundation.h>

@@ -2,8 +2,8 @@
 //  UITabBar+WYBadge.h
 //  WYBasisKit
 //
-//  Created by  jacke-xu on 2018/12/5.
-//  Copyright © 2018 jacke-xu. All rights reserved.
+//  Created by  guanren on 2018/12/5.
+//  Copyright © 2018 guanren. All rights reserved.
 //  感谢https://github.com/MRsummer/CustomBadge
 
 #import <UIKit/UIKit.h>

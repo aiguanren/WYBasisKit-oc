@@ -2,8 +2,8 @@
 //  WYScrollerView.m
 //  WYBasisKit
 //
-//  Created by jacke-xu on 2017/4/29.
-//  Copyright © 2017年 jacke-xu. All rights reserved.
+//  Created by guanren on 2017/4/29.
+//  Copyright © 2017年 guanren. All rights reserved.
 //
 
 #import "WYScrollerView.h"

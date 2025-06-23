@@ -3,7 +3,7 @@
 //  WYBasisKit
 //
 //  Created by jacke－xu on 16/9/4.
-//  Copyright © 2016年 jacke-xu. All rights reserved.
+//  Copyright © 2016年 guanren. All rights reserved.
 //
 
 #import <Availability.h>

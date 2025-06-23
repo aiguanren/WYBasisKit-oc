@@ -2,8 +2,8 @@
 //  TestPagingViewController.h
 //  WYBasisKit
 //
-//  Created by jacke-xu on 2019/6/7.
-//  Copyright © 2019 jacke-xu. All rights reserved.
+//  Created by guanren on 2019/6/7.
+//  Copyright © 2019 guanren. All rights reserved.
 //
 
 #import <UIKit/UIKit.h>

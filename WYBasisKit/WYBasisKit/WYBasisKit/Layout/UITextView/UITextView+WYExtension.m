@@ -2,8 +2,8 @@
 //  UITextView+WYExtension.m
 //  WYBasisKit
 //
-//  Created by  jacke-xu on 2018/11/27.
-//  Copyright © 2018 jacke-xu. All rights reserved.
+//  Created by  guanren on 2018/11/27.
+//  Copyright © 2018 guanren. All rights reserved.
 //
 
 #import "UITextView+WYExtension.h"

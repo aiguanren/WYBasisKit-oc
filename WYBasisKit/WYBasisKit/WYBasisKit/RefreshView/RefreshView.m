@@ -2,8 +2,8 @@
 //  RefreshView.m
 //  WYBasisKit
 //
-//  Created by jacke-xu on 17/2/23.
-//  Copyright © 2017年 com.jacke-xu. All rights reserved.
+//  Created by guanren on 17/2/23.
+//  Copyright © 2017年 com.guanren. All rights reserved.
 //
 
 #import "RefreshView.h"

@@ -2,8 +2,8 @@
 //  TestLableViewController.m
 //  WYBasisKit
 //
-//  Created by  jacke-xu on 2018/6/20.
-//  Copyright © 2018年 jacke-xu. All rights reserved.
+//  Created by  guanren on 2018/6/20.
+//  Copyright © 2018年 guanren. All rights reserved.
 //
 
 #import "TestLableViewController.h"
@@ -77,7 +77,7 @@
     [label1 wy_clickRichTextWithStrings:@[@"点我",@"点我"] delegate:self];
 
     //需要点击的字符不同
-    NSString *label_text2 = @"您好！您是小明吗？你中奖了，领取地址“https://github.com/Jacke-xu/WYBasisKit”,领奖码“记得给star哦”";
+    NSString *label_text2 = @"您好！您是小明吗？你中奖了，领取地址“https://github.com/guanren/WYBasisKit”,领奖码“记得给star哦”";
     NSMutableAttributedString *attributedString2 = [[NSMutableAttributedString alloc]initWithString:label_text2];
     [attributedString2 addAttribute:NSFontAttributeName value:[UIFont systemFontOfSize:15] range:NSMakeRange(0, label_text2.length)];
     [attributedString2 addAttribute:NSForegroundColorAttributeName value:[UIColor redColor] range:NSMakeRange(19, 38)];
@@ -91,7 +91,7 @@
 
     //通过block设置要点击的字符串
     wy_weakSelf(self);
-    [label2 wy_clickRichTextWithStrings:@[@"https://github.com/Jacke-xu/WYBasisKit",@"记得给star哦"] clickAction:^(NSString *string, NSRange range, NSInteger index) {
+    [label2 wy_clickRichTextWithStrings:@[@"https://github.com/guanren/WYBasisKit",@"记得给star哦"] clickAction:^(NSString *string, NSRange range, NSInteger index) {
         NSString *message = [NSString stringWithFormat:@"点击了“%@”字符\nrange: %@\nindex: %ld",string,NSStringFromRange(range),(long)index];
         NSLog(@"messge = %@",message);
         [weakself showAlertMessage:message];
