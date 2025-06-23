@@ -26,10 +26,15 @@ workspace 'WYBasisKit.xcworkspace' # 多个项目时需要指定target对应的x
 target 'WYBasisKit' do
   project 'WYBasisKit/WYBasisKit.xcodeproj' # 多个项目时需要指定target对应的xcodeproj文件
   pod 'AFNetworking'
-  pod 'SDWebImage'
   pod 'MJRefresh'
   pod 'PureCamera'
   pod 'Masonry'
+  # 根据Xcode版本号指定三方库的版本号
+  if xcode_version_less_than_or_equal_to(14, 2)
+    pod 'SDWebImage', '5.20.1'
+  else
+    pod 'SDWebImage'
+  end
 end
 
 project 'path/to/Project.xcodeproj'
@@ -37,6 +42,12 @@ target 'WYBasisKitVerify' do
   project 'WYBasisKitVerify/WYBasisKitVerify.xcodeproj' # 多个项目时需要指定target对应的xcodeproj文件
   pod 'WYBasisKit-oc', :path => 'WYBasisKit/WYBasisKit/WYBasisKit'
   pod 'Masonry'
+  # 根据Xcode版本号指定三方库的版本号
+  if xcode_version_less_than_or_equal_to(14, 2)
+    pod 'SDWebImage', '5.20.1'
+  else
+    pod 'SDWebImage'
+  end
 end
 
 post_install do |installer|
