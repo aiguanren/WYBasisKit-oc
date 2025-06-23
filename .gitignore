@@ -1,13 +1,42 @@
-*.xcuserstate
+# 系统文件
 .DS_Store
-*/.DS_Store
-project.xcworkspace      
-xcuserdata    
-UserInterfaceState.xcuserstate      
+**/.DS_Store
+*.swp
+*.lock
+
+
+# Xcode 用户文件
+xcuserdata
 xcuserdata/
-project.xcworkspace/  
+*.xcuserstate
 UserInterface.xcuserstate
+UserInterfaceState.xcuserstate
+
+
+# Xcode 工作区和项目文件
+*.xcworkspace/
+project.xcworkspace/
+
+
+# 构建产物
+build/
+DerivedData/
+*.ipa
+*.dSYM.zip
+*.dSYM
+
+
+# 日志和缓存
+*.log
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+
+
+# 依赖和框架
+Pods/
+Carthage/
 IJKMediaPlayer.framework/
 IJKMediaPlayer.xcframework/
 WYMediaPlayerFramework/
-Pods/
+vendor/
