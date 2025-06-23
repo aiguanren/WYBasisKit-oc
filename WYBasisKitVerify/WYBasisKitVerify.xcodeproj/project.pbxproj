@@ -1,0 +1,521 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 63;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		587CE0112E092F7900929E1D /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 587CE0042E092F7900929E1D /* AppDelegate.m */; };
+		587CE0122E092F7900929E1D /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 587CE0092E092F7900929E1D /* main.m */; };
+		587CE0152E092F7900929E1D /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 587CE0052E092F7900929E1D /* Assets.xcassets */; };
+		587CE0172E092F7900929E1D /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 587CE0082E092F7900929E1D /* LaunchScreen.storyboard */; };
+		587CE0182E092F7900929E1D /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 587CE00B2E092F7900929E1D /* Main.storyboard */; };
+		587CE06E2E093A0000929E1D /* TestTextFieldViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 587CE0602E093A0000929E1D /* TestTextFieldViewController.m */; };
+		587CE06F2E093A0000929E1D /* TestLableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 587CE05A2E093A0000929E1D /* TestLableViewController.m */; };
+		587CE0702E093A0000929E1D /* TestWebViewViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 587CE06A2E093A0000929E1D /* TestWebViewViewController.m */; };
+		587CE0712E093A0000929E1D /* TestCallMethodController.m in Sources */ = {isa = PBXBuildFile; fileRef = 587CE0582E093A0000929E1D /* TestCallMethodController.m */; };
+		587CE0722E093A0000929E1D /* TestTextViewViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 587CE0622E093A0000929E1D /* TestTextViewViewController.m */; };
+		587CE0732E093A0000929E1D /* WYTestVisualController.m in Sources */ = {isa = PBXBuildFile; fileRef = 587CE06C2E093A0000929E1D /* WYTestVisualController.m */; };
+		587CE0742E093A0000929E1D /* TestBoolJudgeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 587CE0562E093A0000929E1D /* TestBoolJudgeViewController.m */; };
+		587CE0752E093A0000929E1D /* TestTUIButtonViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 587CE0642E093A0000929E1D /* TestTUIButtonViewController.m */; };
+		587CE0762E093A0000929E1D /* TestPagingViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 587CE05E2E093A0000929E1D /* TestPagingViewController.m */; };
+		587CE0772E093A0000929E1D /* TestUIAlertController.m in Sources */ = {isa = PBXBuildFile; fileRef = 587CE0662E093A0000929E1D /* TestUIAlertController.m */; };
+		587CE0782E093A0000929E1D /* TestLoadingStateViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 587CE05C2E093A0000929E1D /* TestLoadingStateViewController.m */; };
+		587CE0792E093A0000929E1D /* TestUserAvatarViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 587CE0682E093A0000929E1D /* TestUserAvatarViewController.m */; };
+		587CE14D2E093A7F00929E1D /* MainViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 587CE14C2E093A7F00929E1D /* MainViewController.m */; };
+		C04D8D06E4735EF7F328B2A7 /* Pods_WYBasisKitVerify.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D521FBE9CE4B66E0B3ED50F3 /* Pods_WYBasisKitVerify.framework */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXFileReference section */
+		587CDFE02E092EE500929E1D /* WYBasisKitVerify.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = WYBasisKitVerify.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		587CE0032E092F7900929E1D /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
+		587CE0042E092F7900929E1D /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
+		587CE0052E092F7900929E1D /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		587CE0062E092F7900929E1D /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		587CE0072E092F7900929E1D /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
+		587CE0092E092F7900929E1D /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
+		587CE00A2E092F7900929E1D /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		587CE0552E093A0000929E1D /* TestBoolJudgeViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TestBoolJudgeViewController.h; sourceTree = "<group>"; };
+		587CE0562E093A0000929E1D /* TestBoolJudgeViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TestBoolJudgeViewController.m; sourceTree = "<group>"; };
+		587CE0572E093A0000929E1D /* TestCallMethodController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TestCallMethodController.h; sourceTree = "<group>"; };
+		587CE0582E093A0000929E1D /* TestCallMethodController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TestCallMethodController.m; sourceTree = "<group>"; };
+		587CE0592E093A0000929E1D /* TestLableViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TestLableViewController.h; sourceTree = "<group>"; };
+		587CE05A2E093A0000929E1D /* TestLableViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TestLableViewController.m; sourceTree = "<group>"; };
+		587CE05B2E093A0000929E1D /* TestLoadingStateViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TestLoadingStateViewController.h; sourceTree = "<group>"; };
+		587CE05C2E093A0000929E1D /* TestLoadingStateViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TestLoadingStateViewController.m; sourceTree = "<group>"; };
+		587CE05D2E093A0000929E1D /* TestPagingViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TestPagingViewController.h; sourceTree = "<group>"; };
+		587CE05E2E093A0000929E1D /* TestPagingViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TestPagingViewController.m; sourceTree = "<group>"; };
+		587CE05F2E093A0000929E1D /* TestTextFieldViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TestTextFieldViewController.h; sourceTree = "<group>"; };
+		587CE0602E093A0000929E1D /* TestTextFieldViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TestTextFieldViewController.m; sourceTree = "<group>"; };
+		587CE0612E093A0000929E1D /* TestTextViewViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TestTextViewViewController.h; sourceTree = "<group>"; };
+		587CE0622E093A0000929E1D /* TestTextViewViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TestTextViewViewController.m; sourceTree = "<group>"; };
+		587CE0632E093A0000929E1D /* TestTUIButtonViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TestTUIButtonViewController.h; sourceTree = "<group>"; };
+		587CE0642E093A0000929E1D /* TestTUIButtonViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TestTUIButtonViewController.m; sourceTree = "<group>"; };
+		587CE0652E093A0000929E1D /* TestUIAlertController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TestUIAlertController.h; sourceTree = "<group>"; };
+		587CE0662E093A0000929E1D /* TestUIAlertController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TestUIAlertController.m; sourceTree = "<group>"; };
+		587CE0672E093A0000929E1D /* TestUserAvatarViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TestUserAvatarViewController.h; sourceTree = "<group>"; };
+		587CE0682E093A0000929E1D /* TestUserAvatarViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TestUserAvatarViewController.m; sourceTree = "<group>"; };
+		587CE0692E093A0000929E1D /* TestWebViewViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TestWebViewViewController.h; sourceTree = "<group>"; };
+		587CE06A2E093A0000929E1D /* TestWebViewViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TestWebViewViewController.m; sourceTree = "<group>"; };
+		587CE06B2E093A0000929E1D /* WYTestVisualController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = WYTestVisualController.h; sourceTree = "<group>"; };
+		587CE06C2E093A0000929E1D /* WYTestVisualController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = WYTestVisualController.m; sourceTree = "<group>"; };
+		587CE14B2E093A7F00929E1D /* MainViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MainViewController.h; sourceTree = "<group>"; };
+		587CE14C2E093A7F00929E1D /* MainViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MainViewController.m; sourceTree = "<group>"; };
+		8E940F1FE73BCDAE79B827CD /* Pods-WYBasisKitVerify.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-WYBasisKitVerify.release.xcconfig"; path = "Target Support Files/Pods-WYBasisKitVerify/Pods-WYBasisKitVerify.release.xcconfig"; sourceTree = "<group>"; };
+		D46F29E224F1DF961FBAF191 /* Pods-WYBasisKitVerify.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-WYBasisKitVerify.debug.xcconfig"; path = "Target Support Files/Pods-WYBasisKitVerify/Pods-WYBasisKitVerify.debug.xcconfig"; sourceTree = "<group>"; };
+		D521FBE9CE4B66E0B3ED50F3 /* Pods_WYBasisKitVerify.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_WYBasisKitVerify.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		587CDFDD2E092EE500929E1D /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				C04D8D06E4735EF7F328B2A7 /* Pods_WYBasisKitVerify.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		587CDFD72E092EE500929E1D = {
+			isa = PBXGroup;
+			children = (
+				587CE0102E092F7900929E1D /* WYBasisKitVerify */,
+				587CDFE12E092EE500929E1D /* Products */,
+				9D6F195CCD9335377067B364 /* Pods */,
+				D5C613256871B3AE589F202C /* Frameworks */,
+			);
+			sourceTree = "<group>";
+		};
+		587CDFE12E092EE500929E1D /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				587CDFE02E092EE500929E1D /* WYBasisKitVerify.app */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		587CE0102E092F7900929E1D /* WYBasisKitVerify */ = {
+			isa = PBXGroup;
+			children = (
+				587CE06D2E093A0000929E1D /* TestController */,
+				587CE0032E092F7900929E1D /* AppDelegate.h */,
+				587CE0042E092F7900929E1D /* AppDelegate.m */,
+				587CE14B2E093A7F00929E1D /* MainViewController.h */,
+				587CE14C2E093A7F00929E1D /* MainViewController.m */,
+				587CE0052E092F7900929E1D /* Assets.xcassets */,
+				587CE0062E092F7900929E1D /* Info.plist */,
+				587CE0082E092F7900929E1D /* LaunchScreen.storyboard */,
+				587CE0092E092F7900929E1D /* main.m */,
+				587CE00B2E092F7900929E1D /* Main.storyboard */,
+			);
+			path = WYBasisKitVerify;
+			sourceTree = "<group>";
+		};
+		587CE06D2E093A0000929E1D /* TestController */ = {
+			isa = PBXGroup;
+			children = (
+				587CE0552E093A0000929E1D /* TestBoolJudgeViewController.h */,
+				587CE0562E093A0000929E1D /* TestBoolJudgeViewController.m */,
+				587CE0572E093A0000929E1D /* TestCallMethodController.h */,
+				587CE0582E093A0000929E1D /* TestCallMethodController.m */,
+				587CE0592E093A0000929E1D /* TestLableViewController.h */,
+				587CE05A2E093A0000929E1D /* TestLableViewController.m */,
+				587CE05B2E093A0000929E1D /* TestLoadingStateViewController.h */,
+				587CE05C2E093A0000929E1D /* TestLoadingStateViewController.m */,
+				587CE05D2E093A0000929E1D /* TestPagingViewController.h */,
+				587CE05E2E093A0000929E1D /* TestPagingViewController.m */,
+				587CE05F2E093A0000929E1D /* TestTextFieldViewController.h */,
+				587CE0602E093A0000929E1D /* TestTextFieldViewController.m */,
+				587CE0612E093A0000929E1D /* TestTextViewViewController.h */,
+				587CE0622E093A0000929E1D /* TestTextViewViewController.m */,
+				587CE0632E093A0000929E1D /* TestTUIButtonViewController.h */,
+				587CE0642E093A0000929E1D /* TestTUIButtonViewController.m */,
+				587CE0652E093A0000929E1D /* TestUIAlertController.h */,
+				587CE0662E093A0000929E1D /* TestUIAlertController.m */,
+				587CE0672E093A0000929E1D /* TestUserAvatarViewController.h */,
+				587CE0682E093A0000929E1D /* TestUserAvatarViewController.m */,
+				587CE0692E093A0000929E1D /* TestWebViewViewController.h */,
+				587CE06A2E093A0000929E1D /* TestWebViewViewController.m */,
+				587CE06B2E093A0000929E1D /* WYTestVisualController.h */,
+				587CE06C2E093A0000929E1D /* WYTestVisualController.m */,
+			);
+			path = TestController;
+			sourceTree = "<group>";
+		};
+		9D6F195CCD9335377067B364 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				D46F29E224F1DF961FBAF191 /* Pods-WYBasisKitVerify.debug.xcconfig */,
+				8E940F1FE73BCDAE79B827CD /* Pods-WYBasisKitVerify.release.xcconfig */,
+			);
+			name = Pods;
+			path = ../Pods;
+			sourceTree = "<group>";
+		};
+		D5C613256871B3AE589F202C /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				D521FBE9CE4B66E0B3ED50F3 /* Pods_WYBasisKitVerify.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		587CDFDF2E092EE500929E1D /* WYBasisKitVerify */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 587CDFF82E092EE600929E1D /* Build configuration list for PBXNativeTarget "WYBasisKitVerify" */;
+			buildPhases = (
+				6C69483A1F27963B8A55910A /* [CP] Check Pods Manifest.lock */,
+				587CDFDC2E092EE500929E1D /* Sources */,
+				587CDFDD2E092EE500929E1D /* Frameworks */,
+				587CDFDE2E092EE500929E1D /* Resources */,
+				8FE530AFEEADBCA3F7BC1516 /* [CP] Embed Pods Frameworks */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = WYBasisKitVerify;
+			productName = WYBasisKitVerify;
+			productReference = 587CDFE02E092EE500929E1D /* WYBasisKitVerify.app */;
+			productType = "com.apple.product-type.application";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		587CDFD82E092EE500929E1D /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastUpgradeCheck = 1420;
+				TargetAttributes = {
+					587CDFDF2E092EE500929E1D = {
+						CreatedOnToolsVersion = 14.2;
+					};
+				};
+			};
+			buildConfigurationList = 587CDFDB2E092EE500929E1D /* Build configuration list for PBXProject "WYBasisKitVerify" */;
+			compatibilityVersion = "Xcode 9.3";
+			developmentRegion = en;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = 587CDFD72E092EE500929E1D;
+			minimizedProjectReferenceProxies = 1;
+			productRefGroup = 587CDFE12E092EE500929E1D /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				587CDFDF2E092EE500929E1D /* WYBasisKitVerify */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		587CDFDE2E092EE500929E1D /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				587CE0152E092F7900929E1D /* Assets.xcassets in Resources */,
+				587CE0172E092F7900929E1D /* LaunchScreen.storyboard in Resources */,
+				587CE0182E092F7900929E1D /* Main.storyboard in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		6C69483A1F27963B8A55910A /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-WYBasisKitVerify-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		8FE530AFEEADBCA3F7BC1516 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-WYBasisKitVerify/Pods-WYBasisKitVerify-frameworks-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-WYBasisKitVerify/Pods-WYBasisKitVerify-frameworks-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-WYBasisKitVerify/Pods-WYBasisKitVerify-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		587CDFDC2E092EE500929E1D /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				587CE0112E092F7900929E1D /* AppDelegate.m in Sources */,
+				587CE06E2E093A0000929E1D /* TestTextFieldViewController.m in Sources */,
+				587CE06F2E093A0000929E1D /* TestLableViewController.m in Sources */,
+				587CE0702E093A0000929E1D /* TestWebViewViewController.m in Sources */,
+				587CE0712E093A0000929E1D /* TestCallMethodController.m in Sources */,
+				587CE0722E093A0000929E1D /* TestTextViewViewController.m in Sources */,
+				587CE0732E093A0000929E1D /* WYTestVisualController.m in Sources */,
+				587CE0742E093A0000929E1D /* TestBoolJudgeViewController.m in Sources */,
+				587CE0752E093A0000929E1D /* TestTUIButtonViewController.m in Sources */,
+				587CE0762E093A0000929E1D /* TestPagingViewController.m in Sources */,
+				587CE0772E093A0000929E1D /* TestUIAlertController.m in Sources */,
+				587CE0782E093A0000929E1D /* TestLoadingStateViewController.m in Sources */,
+				587CE0792E093A0000929E1D /* TestUserAvatarViewController.m in Sources */,
+				587CE14D2E093A7F00929E1D /* MainViewController.m in Sources */,
+				587CE0122E092F7900929E1D /* main.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXVariantGroup section */
+		587CE0082E092F7900929E1D /* LaunchScreen.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				587CE0072E092F7900929E1D /* Base */,
+			);
+			name = LaunchScreen.storyboard;
+			sourceTree = "<group>";
+		};
+		587CE00B2E092F7900929E1D /* Main.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				587CE00A2E092F7900929E1D /* Base */,
+			);
+			name = Main.storyboard;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		587CDFF92E092EE600929E1D /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = D46F29E224F1DF961FBAF191 /* Pods-WYBasisKitVerify.debug.xcconfig */;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = H988T9RC32;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = WYBasisKitVerify/Info.plist;
+				INFOPLIST_KEY_LSApplicationCategoryType = "public.app-category.developer-tools";
+				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
+				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
+				INFOPLIST_KEY_UIMainStoryboardFile = Main;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations = UIInterfaceOrientationPortrait;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.guanren.WYBasisKitVerify;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		587CDFFA2E092EE600929E1D /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 8E940F1FE73BCDAE79B827CD /* Pods-WYBasisKitVerify.release.xcconfig */;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = H988T9RC32;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = WYBasisKitVerify/Info.plist;
+				INFOPLIST_KEY_LSApplicationCategoryType = "public.app-category.developer-tools";
+				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
+				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
+				INFOPLIST_KEY_UIMainStoryboardFile = Main;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations = UIInterfaceOrientationPortrait;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.guanren.WYBasisKitVerify;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Release;
+		};
+		587CDFFB2E092EE600929E1D /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				ASSETCATALOG_COMPILER_GENERATE_SWIFT_ASSET_SYMBOL_EXTENSIONS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				DEVELOPMENT_TEAM = 48Q2YZZG66;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				"EXCLUDED_ARCHS[sdk=iphonesimulator*]" = arm64;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
+				LOCALIZATION_PREFERS_STRING_CATALOGS = NO;
+				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
+				MTL_FAST_MATH = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+			};
+			name = Debug;
+		};
+		587CDFFC2E092EE600929E1D /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				ASSETCATALOG_COMPILER_GENERATE_SWIFT_ASSET_SYMBOL_EXTENSIONS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				DEVELOPMENT_TEAM = 48Q2YZZG66;
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				"EXCLUDED_ARCHS[sdk=iphonesimulator*]" = arm64;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
+				LOCALIZATION_PREFERS_STRING_CATALOGS = NO;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				MTL_FAST_MATH = YES;
+				SDKROOT = iphoneos;
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		587CDFDB2E092EE500929E1D /* Build configuration list for PBXProject "WYBasisKitVerify" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				587CDFFB2E092EE600929E1D /* Debug */,
+				587CDFFC2E092EE600929E1D /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		587CDFF82E092EE600929E1D /* Build configuration list for PBXNativeTarget "WYBasisKitVerify" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				587CDFF92E092EE600929E1D /* Debug */,
+				587CDFFA2E092EE600929E1D /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = 587CDFD82E092EE500929E1D /* Project object */;
+}

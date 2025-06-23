@@ -15,11 +15,16 @@ PODS:
   - AFNetworking/UIKit (4.0.1):
     - AFNetworking/NSURLSession
   - Masonry (1.1.0)
-  - MJRefresh (3.7.2)
+  - MJRefresh (3.7.9)
   - PureCamera (1.6.3)
-  - SDWebImage (5.11.1):
-    - SDWebImage/Core (= 5.11.1)
-  - SDWebImage/Core (5.11.1)
+  - SDWebImage (5.21.1):
+    - SDWebImage/Core (= 5.21.1)
+  - SDWebImage/Core (5.21.1)
+  - WYBasisKit-oc (1.0.0):
+    - AFNetworking
+    - MJRefresh
+    - PureCamera
+    - SDWebImage
 
 DEPENDENCIES:
   - AFNetworking
@@ -27,6 +32,7 @@ DEPENDENCIES:
   - MJRefresh
   - PureCamera
   - SDWebImage
+  - WYBasisKit-oc (from `WYBasisKit/WYBasisKit/WYBasisKit`)
 
 SPEC REPOS:
   https://mirrors.tuna.tsinghua.edu.cn/git/CocoaPods/Specs.git:
@@ -36,13 +42,18 @@ SPEC REPOS:
     - PureCamera
     - SDWebImage
 
+EXTERNAL SOURCES:
+  WYBasisKit-oc:
+    :path: WYBasisKit/WYBasisKit/WYBasisKit
+
 SPEC CHECKSUMS:
-  AFNetworking: 7864c38297c79aaca1500c33288e429c3451fdce
+  AFNetworking: 3bd23d814e976cd148d7d44c3ab78017b744cd58
   Masonry: 678fab65091a9290e40e2832a55e7ab731aad201
-  MJRefresh: 30997d30b347c8e9508a4db11e3a690da0c9b85a
+  MJRefresh: ff9e531227924c84ce459338414550a05d2aea78
   PureCamera: 6414c925becc324e6410db66b048d4c6e84c0b0a
-  SDWebImage: a7f831e1a65eb5e285e3fb046a23fcfbf08e696d
+  SDWebImage: f29024626962457f3470184232766516dee8dfea
+  WYBasisKit-oc: 016e7e77c08bdf761d598887363ef9941c8015b0
 
-PODFILE CHECKSUM: c5268e0ad0c269f5d0bb8b6f06bf4c060167ef5e
+PODFILE CHECKSUM: a12210c76eded5ef055fcfb30ffa0a135ccd6512
 
-COCOAPODS: 1.10.1
+COCOAPODS: 1.16.2

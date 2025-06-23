@@ -2,7 +2,10 @@
 <Workspace
    version = "1.0">
    <FileRef
-      location = "group:WYBasisKit.xcodeproj">
+      location = "group:WYBasisKit/WYBasisKit.xcodeproj">
+   </FileRef>
+   <FileRef
+      location = "group:WYBasisKitVerify/WYBasisKitVerify.xcodeproj">
    </FileRef>
    <FileRef
       location = "group:Pods/Pods.xcodeproj">

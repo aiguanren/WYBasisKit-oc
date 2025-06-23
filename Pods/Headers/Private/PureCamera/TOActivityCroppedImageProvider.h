@@ -1,1 +1,0 @@
-../../../PureCamera/PureCamera/TOActivityCroppedImageProvider.h

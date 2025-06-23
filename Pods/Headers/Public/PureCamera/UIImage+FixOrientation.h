@@ -1,1 +1,0 @@
-../../../PureCamera/PureCamera/UIImage+FixOrientation.h

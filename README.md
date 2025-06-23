@@ -7,7 +7,6 @@
 
 "WYBasisKit" 不仅可以帮助开发者快速构建一个工程，还有基于常用网络框架和系统API而封装的方法，开发者只需简单的调用API就可以快速实现相应功能， 大幅提高开发效率。
 
-
 ### [点这里穿越到Swift版](https://github.com/Jacke-xu/WYBasisKit-swift.git)
 
 
@@ -51,7 +50,7 @@ self.navigationController.barReturnButtonColor = [UIColor whiteColor];
 //设置跳转到下一页时返回文本(可以传空)
 [self.navigationController pushControllerBarReturnButtonTitle:@"上一页" navigationItem:self.navigationItem];
 ```
-![image](https://github.com/Jacke-xu/WYBasisKit/blob/master/GitResource/navigationBar.gif)
+![image](https://github.com/Jacke-xu/WYBasisKit/blob/master/DemoEffect/navigationBar.gif)
 
 
 ### NSMutableAttributedString+Extension  && UILabel+RichText
@@ -91,7 +90,7 @@ NSString *message = [NSString stringWithFormat:@"点击了“%@”字符\nrange:
 NSLog(@"messge = %@",message);
 }];
 ```
-![image](https://github.com/Jacke-xu/WYBasisKit/blob/master/GitResource/UILable.gif)
+![image](https://github.com/Jacke-xu/WYBasisKit/blob/master/DemoEffect/UILable.gif)
 
 
 ### UITextView+Extension  && UITextField+Extension
@@ -110,7 +109,7 @@ textView.maximumLimit = 10;
 //设置右下角文字提示
 textView.characterLengthPrompt = YES;
 ```
-![image](https://github.com/Jacke-xu/WYBasisKit/blob/master/GitResource/UITextField.gif) ![image](https://github.com/Jacke-xu/WYBasisKit/blob/master/GitResource/UITextView.gif)
+![image](https://github.com/Jacke-xu/WYBasisKit/blob/master/DemoEffect/UITextField.gif) ![image](https://github.com/Jacke-xu/WYBasisKit/blob/master/DemoEffect/UITextView.gif)
 
 
 ### UIButton+Extension  && UIButton+EdgeInsetsLayout
@@ -137,7 +136,7 @@ btn.imageRect = CGRectMake((btn.width-imageSize.width)/2, 5+titleSize.height+((b
 //通过EdgeInsets设置图片控件与文本控件的位置
 [btn2 layouEdgeInsetsPosition:ButtonPositionImageTop_titleBottom spacing:5];
 ```
-![image](https://github.com/Jacke-xu/WYBasisKit/blob/master/GitResource/UIButton.gif) 
+![image](https://github.com/Jacke-xu/WYBasisKit/blob/master/DemoEffect/UIButton.gif) 
 
 
 ### WKWebView+Extension
@@ -152,7 +151,7 @@ WKWebView *webView = [[WKWebView alloc]initWithFrame:CGRectMake(0, 0, screenWidt
 [webView showProgressWithColor:[UIColor orangeColor]];
 [self.view addSubview:webView];
 ```
-![image](https://github.com/Jacke-xu/WYBasisKit/blob/master/GitResource/webView.gif) 
+![image](https://github.com/Jacke-xu/WYBasisKit/blob/master/DemoEffect/webView.gif) 
 
 
 ### StateView  && LoadingView
@@ -188,7 +187,7 @@ WKWebView *webView = [[WKWebView alloc]initWithFrame:CGRectMake(0, 0, screenWidt
 /** 弹窗时是否允许用户界面交互  默认允许 */
 + (void)userInteractionEnabled:(BOOL)userInteractionEnabled;
 ```
-![image](https://github.com/Jacke-xu/WYBasisKit/blob/master/GitResource/LoadingState.gif) 
+![image](https://github.com/Jacke-xu/WYBasisKit/blob/master/DemoEffect/LoadingState.gif) 
 
 
 ### 基于AFNetworking封装的网络请求(支持HTTPS)

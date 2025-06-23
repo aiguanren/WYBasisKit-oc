@@ -7,3 +7,7 @@ UserInterfaceState.xcuserstate
 xcuserdata/
 project.xcworkspace/  
 UserInterface.xcuserstate
+IJKMediaPlayer.framework/
+IJKMediaPlayer.xcframework/
+WYMediaPlayerFramework/
+Pods/
