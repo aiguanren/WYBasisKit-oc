@@ -1,6 +1,6 @@
 # 系统文件
 .DS_Store
-**/.DS_Store
+*/.DS_Store
 *.swp
 *.lock
 
