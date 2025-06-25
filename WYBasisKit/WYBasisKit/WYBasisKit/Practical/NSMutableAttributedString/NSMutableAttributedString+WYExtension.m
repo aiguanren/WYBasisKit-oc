@@ -84,6 +84,10 @@
 
 - (void)wy_setLineSpacing:(CGFloat)lineSpacing string:(NSString *)string {
     
+    if (self.string.length <= 0) {
+        return;
+    }
+    
     NSMutableParagraphStyle *paragraphStyle = ([self attribute:NSParagraphStyleAttributeName atIndex:0 effectiveRange:nil]);
     if(paragraphStyle == nil) {
         paragraphStyle = [NSMutableParagraphStyle wy_paragraphStyle];
@@ -99,6 +103,10 @@
 }
 
 - (void)wy_setAlignment:(NSTextAlignment)textAlignment {
+    
+    if (self.string.length <= 0) {
+        return;
+    }
     
     NSMutableParagraphStyle *paragraphStyle = ([self attribute:NSParagraphStyleAttributeName atIndex:0 effectiveRange:nil]);
     if(paragraphStyle == nil) {
