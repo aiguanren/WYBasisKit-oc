@@ -67,6 +67,7 @@
 		587CE1482E093A4000929E1D /* EmojiFile in Resources */ = {isa = PBXBuildFile; fileRef = 587CE0F22E093A4000929E1D /* EmojiFile */; };
 		587CE1492E093A4000929E1D /* bank.plist in Resources */ = {isa = PBXBuildFile; fileRef = 587CE0F12E093A4000929E1D /* bank.plist */; };
 		587CE14A2E093A4000929E1D /* Loading.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 587CE0C82E093A4000929E1D /* Loading.bundle */; };
+		AAC3427F2E1BE10C0043CC0B /* NSObject+WYArchived.m in Sources */ = {isa = PBXBuildFile; fileRef = AAC3427E2E1BE10B0043CC0B /* NSObject+WYArchived.m */; };
 		D55B09F221EFCA1626ABD695 /* Pods_WYBasisKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 007E002CFC3236A0D4CDC27B /* Pods_WYBasisKit.framework */; };
 /* End PBXBuildFile section */
 
@@ -192,6 +193,8 @@
 		587CE10F2E093A4000929E1D /* WYProtocolManager.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = WYProtocolManager.m; sourceTree = "<group>"; };
 		587CE1112E093A4000929E1D /* RefreshView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = RefreshView.h; sourceTree = "<group>"; };
 		587CE1122E093A4000929E1D /* RefreshView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = RefreshView.m; sourceTree = "<group>"; };
+		AAC3427D2E1BE10B0043CC0B /* NSObject+WYArchived.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "NSObject+WYArchived.h"; sourceTree = "<group>"; };
+		AAC3427E2E1BE10B0043CC0B /* NSObject+WYArchived.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "NSObject+WYArchived.m"; sourceTree = "<group>"; };
 		BFF0DDDD6D4530AA1B323E27 /* Pods-WYBasisKit.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-WYBasisKit.release.xcconfig"; path = "Target Support Files/Pods-WYBasisKit/Pods-WYBasisKit.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -594,6 +597,8 @@
 			children = (
 				587CE0EE2E093A4000929E1D /* NSObject+WYParse.h */,
 				587CE0EF2E093A4000929E1D /* NSObject+WYParse.m */,
+				AAC3427D2E1BE10B0043CC0B /* NSObject+WYArchived.h */,
+				AAC3427E2E1BE10B0043CC0B /* NSObject+WYArchived.m */,
 			);
 			path = NSObject;
 			sourceTree = "<group>";
@@ -871,6 +876,7 @@
 				587CE1242E093A4000929E1D /* WaterfallFlow.m in Sources */,
 				587CE1252E093A4000929E1D /* WYNetworking.m in Sources */,
 				587CE1262E093A4000929E1D /* UITableView+WYExtension.m in Sources */,
+				AAC3427F2E1BE10C0043CC0B /* NSObject+WYArchived.m in Sources */,
 				587CE1272E093A4000929E1D /* LoadingView.m in Sources */,
 				587CE1282E093A4000929E1D /* UIView+WYExtension.m in Sources */,
 				587CE1292E093A4000929E1D /* UIAlertController+WYExtension.m in Sources */,

@@ -97,6 +97,44 @@
     [self addAttribute:NSParagraphStyleAttributeName value:paragraphStyle range:[[NSString stringWithFormat:@"%@",self.string] rangeOfString:[NSString stringWithFormat:@"%@",string]]];
 }
 
+- (void)wy_setLineSpacings:(CGFloat)lineSpacing
+              beforeString:(NSString *)beforeString
+               afterString:(NSString *)afterString {
+
+    if (lineSpacing <= 0 ||
+        beforeString.length == 0 ||
+        afterString.length  == 0) {
+        return;
+    }
+
+    NSString *full = self.string;
+
+    // 找到 beforeString 首次出现的位置
+    NSRange beforeRange = [full rangeOfString:beforeString];
+    if (beforeRange.location == NSNotFound) return;
+
+    // 仅在 beforeString 之后搜索 afterString，避免同名提前命中
+    NSRange searchRange = NSMakeRange(NSMaxRange(beforeRange),
+                                      full.length - NSMaxRange(beforeRange));
+    NSRange afterRange  = [full rangeOfString:afterString options:0 range:searchRange];
+    if (afterRange.location == NSNotFound) return;
+
+    // 获取 beforeString 所在段落范围
+    NSRange paragraphRange =
+        [full paragraphRangeForRange:beforeRange]; // 含末尾换行符
+
+    // 构造段落样式 —— 这里用 paragraphSpacing 模拟
+    //    reason: beforeString 与 afterString 各自是独立段落,
+    //            设置 paragraphSpacing (=段后距) 能精确控制二者之间的距离
+    NSMutableParagraphStyle *style = [[NSMutableParagraphStyle alloc] init];
+    style.paragraphSpacing = lineSpacing; // “段后距” = before -> after 之间的空白
+
+    // 应用到 beforeString 段落
+    [self addAttribute:NSParagraphStyleAttributeName
+                value:style
+                range:paragraphRange];
+}
+
 - (void)wy_setWordsSpacing:(CGFloat)wordsSpacing string:(NSString *)string {
     
     [self addAttribute:NSKernAttributeName value:[NSNumber numberWithFloat:wordsSpacing] range:[self.string rangeOfString:string]];

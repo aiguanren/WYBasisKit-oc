@@ -43,6 +43,9 @@
 /** 设置行间距 */
 - (void)wy_setLineSpacing:(CGFloat)lineSpacing string:(NSString *)string;
 
+/** 设置行间距 */
+- (void)wy_setLineSpacings:(CGFloat)lineSpacing beforeString:(NSString *)beforeString afterString:(NSString *)afterString;
+
 /** 设置字间距 */
 - (void)wy_setWordsSpacing:(CGFloat)wordsSpacing string:(NSString *)string;
 

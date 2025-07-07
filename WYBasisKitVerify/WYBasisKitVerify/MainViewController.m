@@ -7,20 +7,8 @@
 //
 
 #import "MainViewController.h"
-#import "TestLableViewController.h"
-#import "TestWebViewViewController.h"
-#import "TestTextViewViewController.h"
-#import "TestTextFieldViewController.h"
-#import "TestTUIButtonViewController.h"
-#import "TestBoolJudgeViewController.h"
-#import "TestLoadingStateViewController.h"
-#import "TestUserAvatarViewController.h"
-#import "TestPagingViewController.h"
-#import "TestUIAlertController.h"
 #import "NSString+WYExtension.h"
 #import "UITableViewCell+WYExtension.h"
-#import "WYTestVisualController.h"
-#import "TestCallMethodController.h"
 @import WYBasisKit_oc;
 
 @interface MainViewController ()<UITableViewDelegate,UITableViewDataSource>
@@ -100,62 +88,33 @@
     
     [tableView deselectRowAtIndexPath:indexPath animated:YES];
     
-    UIViewController *vc = nil;
-    if(indexPath.row == 0) {
-        
-        vc = [[TestWebViewViewController alloc]init];
-    }
-    else if (indexPath.row == 1) {
-        
-        vc = [[TestLableViewController alloc]init];
-    }
-    else if (indexPath.row == 2) {
-        
-        vc = [[TestTextViewViewController alloc]init];
-    }
-    else if (indexPath.row == 3) {
-        
-        vc = [[TestTextFieldViewController alloc]init];
-    }
-    else if (indexPath.row == 4) {
-        
-        vc = [[TestTUIButtonViewController alloc]init];
-    }
-    else if (indexPath.row == 5) {
-        
-        vc = [[TestBoolJudgeViewController alloc]init];
-    }
-    else if (indexPath.row == 6) {
-        
-        vc = [[TestLoadingStateViewController alloc]init];
-    }
-    else if (indexPath.row == 7) {
-        
-        vc = [[TestUserAvatarViewController alloc]init];
-    }
-    else if (indexPath.row == 8) {
-        
-        vc = [[TestPagingViewController alloc]init];
-    }
-    else if (indexPath.row == 9) {
-        
-        vc = [[TestUIAlertController alloc]init];
-    }
-    else if (indexPath.row == 10) {
-        vc = [[TestCallMethodController alloc] init];
-    }
-    else if (indexPath.row == 11) {
-        vc = [[WYTestVisualController alloc] init];
-    }
+    UIViewController *vc = [[NSClassFromString([self controllers][indexPath.row]) alloc] init];;
     vc.navigationItem.title = [self section][indexPath.row];
     [self.navigationController pushViewController:vc animated:YES];
 }
 
 - (NSArray *)section {
     
-    NSArray *sectionTitleAry = @[@"WKWebView",@"UILable",@"UITextView",@"UITextField",@"UIButton",@"BoolJudge",@"LoadingState",@"userAvatar",@"pagingView",@"UIAlert", @"根据类名跨类调用方法", @"圆角、边框、阴影、渐变"];
+    NSArray *sectionTitleAry = @[@"WKWebView",@"UILable",@"UITextView",@"UITextField",@"UIButton",@"BoolJudge",@"LoadingState",@"userAvatar",@"pagingView",@"UIAlert", @"根据类名跨类调用方法", @"圆角、边框、阴影、渐变", @"归档解归档", @"富文本"];
     
     return sectionTitleAry;
+}
+
+- (NSArray <NSString *> *)controllers {
+    return @[@"TestWebViewViewController",
+             @"TestLableViewController",
+             @"TestTextViewViewController",
+             @"TestTextFieldViewController",
+             @"TestTUIButtonViewController",
+             @"TestBoolJudgeViewController",
+             @"TestLoadingStateViewController",
+             @"TestUserAvatarViewController",
+             @"TestPagingViewController",
+             @"TestUIAlertController",
+             @"TestCallMethodController",
+             @"WYTestVisualController",
+             @"WYArchivedController",
+             @"WYAttributedController"];
 }
 
 - (UITableView *)tableView {
