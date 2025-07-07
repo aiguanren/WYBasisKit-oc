@@ -99,7 +99,8 @@
 
 - (void)wy_setLineSpacings:(CGFloat)lineSpacing
               beforeString:(NSString *)beforeString
-               afterString:(NSString *)afterString {
+               afterString:(NSString *)afterString
+                 alignment:(NSTextAlignment)alignment {
 
     if (lineSpacing <= 0 ||
         beforeString.length == 0 ||
@@ -123,11 +124,9 @@
     NSRange paragraphRange =
         [full paragraphRangeForRange:beforeRange]; // 含末尾换行符
 
-    // 构造段落样式 —— 这里用 paragraphSpacing 模拟
-    //    reason: beforeString 与 afterString 各自是独立段落,
-    //            设置 paragraphSpacing (=段后距) 能精确控制二者之间的距离
     NSMutableParagraphStyle *style = [[NSMutableParagraphStyle alloc] init];
-    style.paragraphSpacing = lineSpacing; // “段后距” = before -> after 之间的空白
+    style.paragraphSpacing = lineSpacing;
+    style.alignment = (alignment == nil) ? NSTextAlignmentLeft : alignment;
 
     // 应用到 beforeString 段落
     [self addAttribute:NSParagraphStyleAttributeName
