@@ -59,12 +59,14 @@
     model.age = 18;
     model.nickNames = @[@"昵称1", @"昵称2"];
     model.remarks = @{@"haha": @"嘿嘿"};
+    [WYArchivedModel wy_registerArchivedClass];
     
     WYTestModel *others = [[WYTestModel alloc] init];
     others.name = @"用户名";
     others.age = 19;
     others.nickNames = @[@"昵称1", @"昵称2"];
     others.remarks = @{@"heihei": @"嘿嘿"};
+    [WYTestModel wy_registerArchivedClass];
     
     model.others = others;
     

@@ -20,9 +20,9 @@
     // Do any additional setup after loading the view.
     
     NSMutableAttributedString *attributed = [[NSMutableAttributedString alloc] initWithString:@"测试1\n测试2\n测试3\n测试4"];
-    [attributed wy_setLineSpacings:10 beforeString:@"测试1" afterString:@"测试2"];
-    [attributed wy_setLineSpacings:15 beforeString:@"测试2" afterString:@"测试3"];
-    [attributed wy_setLineSpacings:20 beforeString:@"测试3" afterString:@"测试4"];
+    [attributed wy_setLineSpacings:10 beforeString:@"测试1" afterString:@"测试2" alignment:NSTextAlignmentLeft];
+    [attributed wy_setLineSpacings:15 beforeString:@"测试2" afterString:@"测试3" alignment:NSTextAlignmentLeft];
+    [attributed wy_setLineSpacings:20 beforeString:@"测试3" afterString:@"测试4" alignment:NSTextAlignmentLeft];
     
     UILabel *label = [[UILabel alloc] init];
     label.backgroundColor = [UIColor orangeColor];

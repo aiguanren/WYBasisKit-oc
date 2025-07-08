@@ -26,6 +26,23 @@ static NSSet<Class> *wy_basicAllowedClasses(Class rootClass) {
     return [kFoundationSet setByAddingObject:rootClass];
 }
 
+/// 已注册支持归档的自定义类集合
+static NSMutableSet<Class> *wy_registeredArchivedClasses(void) {
+    static NSMutableSet<Class> *classSet;
+    static dispatch_once_t onceToken;
+    dispatch_once(&onceToken, ^{
+        classSet = [NSMutableSet set];
+    });
+    return classSet;
+}
+
+/// 注册当前类为支持归档的模型类
++ (void)wy_registerArchivedClass {
+    [wy_registeredArchivedClasses() addObject:self];
+}
+
+#pragma mark - SecureCoding 支持
+
 + (BOOL)supportsSecureCoding {
     return YES;
 }
@@ -34,21 +51,17 @@ static NSSet<Class> *wy_basicAllowedClasses(Class rootClass) {
     if ([self isMemberOfClass:[NSObject class]] || [self isMemberOfClass:[NSProxy class]]) {
         return;
     }
-    
+
     Class currentClass = [self class];
     while (currentClass && currentClass != [NSObject class]) {
         unsigned int count = 0;
         objc_property_t *properties = class_copyPropertyList(currentClass, &count);
-        
+
         for (unsigned int i = 0; i < count; i++) {
             objc_property_t property = properties[i];
-            
-            // 检查是否为只读属性
             const char *attributes = property_getAttributes(property);
-            if (strstr(attributes, ",R") != NULL) {
-                continue; // 跳过只读属性
-            }
-            
+            if (strstr(attributes, ",R") != NULL) continue;
+
             NSString *key = [NSString stringWithUTF8String:property_getName(property)];
             @try {
                 id value = [self valueForKey:key];
@@ -60,7 +73,6 @@ static NSSet<Class> *wy_basicAllowedClasses(Class rootClass) {
             }
         }
         free(properties);
-        
         currentClass = class_getSuperclass(currentClass);
     }
 }
@@ -71,29 +83,20 @@ static NSSet<Class> *wy_basicAllowedClasses(Class rootClass) {
         while (currentClass && currentClass != [NSObject class]) {
             unsigned int count = 0;
             objc_property_t *properties = class_copyPropertyList(currentClass, &count);
-            
+
             for (unsigned int i = 0; i < count; i++) {
                 objc_property_t property = properties[i];
-                
-                // 检查是否为只读属性
                 const char *attributes = property_getAttributes(property);
-                if (strstr(attributes, ",R") != NULL) {
-                    continue; // 跳过只读属性
-                }
-                
+                if (strstr(attributes, ",R") != NULL) continue;
+
                 NSString *key = [NSString stringWithUTF8String:property_getName(property)];
-                
-                // 检查是否存在setter方法
-                NSString *setterName = [NSString stringWithFormat:@"set%@%@:",
-                                        [[key substringToIndex:1] uppercaseString],
-                                        [key substringFromIndex:1]];
-                SEL setterSelector = NSSelectorFromString(setterName);
-                if (![self respondsToSelector:setterSelector]) {
-                    continue; // 没有setter方法，跳过
-                }
-                
+                NSString *setter = [NSString stringWithFormat:@"set%@%@:",
+                                    [[key substringToIndex:1] uppercaseString],
+                                    [key substringFromIndex:1]];
+                SEL setterSelector = NSSelectorFromString(setter);
+                if (![self respondsToSelector:setterSelector]) continue;
+
                 @try {
-                    // 直接解码对象，不限制类
                     id value = [coder decodeObjectForKey:key];
                     if (value && value != [NSNull null]) {
                         [self setValue:value forKey:key];
@@ -103,7 +106,6 @@ static NSSet<Class> *wy_basicAllowedClasses(Class rootClass) {
                 }
             }
             free(properties);
-            
             currentClass = class_getSuperclass(currentClass);
         }
     }
@@ -129,24 +131,24 @@ static NSSet<Class> *wy_basicAllowedClasses(Class rootClass) {
 }
 
 + (instancetype)wy_unarchiveFromData:(NSData *)data {
+    
     if (![data isKindOfClass:[NSData class]] || data.length == 0) {
         return nil;
     }
+
+    NSMutableSet<Class> *allowed = [NSMutableSet setWithSet:wy_basicAllowedClasses(self)];
+    [allowed addObject:self];
     
-    NSSet *allowed = wy_basicAllowedClasses(self);
+    [allowed unionSet:wy_registeredArchivedClasses()];
+
     NSError *error = nil;
     id object = [NSKeyedUnarchiver unarchivedObjectOfClasses:allowed
                                                     fromData:data
                                                        error:&error];
-    if (!object || error) {
-        @try {
-            object = [NSKeyedUnarchiver unarchiveObjectWithData:data];
-        } @catch (NSException *fallbackException) {
-            NSLog(@"WYArchived fallback unarchive error: %@", fallbackException.reason);
-        }
+    if (error) {
+        NSLog(@"WYArchived unarchive error: %@", error.localizedDescription);
     }
     return object;
 }
-
 
 @end
