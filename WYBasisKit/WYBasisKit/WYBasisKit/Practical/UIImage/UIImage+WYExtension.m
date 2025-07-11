@@ -33,6 +33,22 @@
 }
 
 /**
+ *  根据传入的宽度获取图片的等比高度
+ */
+- (CGFloat)wy_heightFromWidth:(CGFloat)width {
+    if (width <= 0 || self.size.width <= 0) return 0;
+    return self.size.height * (width / self.size.width);
+}
+
+/**
+ *  根据传入的高度获取图片的等比宽度
+ */
+- (CGFloat)wy_widthFromHeight:(CGFloat)height {
+    if (height <= 0 || self.size.height <= 0) return 0;
+    return self.size.width * (height / self.size.height);
+}
+
+/**
  *  获取启动页图片
  *
  *  @return 启动页图片
