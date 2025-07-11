@@ -30,20 +30,34 @@
 
 - (void)wy_forbiddenSelfSizing {
     
-    if([[[UIDevice currentDevice] systemVersion] floatValue] >= 11.0) {
-        
-        //关闭高度估算
-        self.estimatedRowHeight = 0;
-        self.estimatedSectionHeaderHeight = 0;
-        self.estimatedSectionFooterHeight = 0;
-        
-        if ([self respondsToSelector:@selector(setContentInsetAdjustmentBehavior:)]) {
-            if (@available(iOS 11.0, *)) {
-                self.contentInsetAdjustmentBehavior = UIScrollViewContentInsetAdjustmentNever;
-            } else {
-                // Fallback on earlier versions
-            }
-        }
+    //关闭高度估算
+    self.estimatedRowHeight = 0;
+    self.estimatedSectionHeaderHeight = 0;
+    self.estimatedSectionFooterHeight = 0;
+    
+    if ([self respondsToSelector:@selector(setContentInsetAdjustmentBehavior:)]) {
+        self.contentInsetAdjustmentBehavior = UIScrollViewContentInsetAdjustmentNever;
+    }
+}
+
+/** 滚动到最底部 */
+- (void)wy_scrollToBottomAtAnimated:(BOOL)animated {
+    
+    NSInteger section = MAX(0, [self numberOfSections] - 1);
+    NSInteger row = MAX(0, [self numberOfRowsInSection:section] - 1);
+    if (section >= 0 && row >= 0) {
+        NSIndexPath *indexPath = [NSIndexPath indexPathForRow:row inSection:section];
+        [self scrollToRowAtIndexPath:indexPath atScrollPosition:UITableViewScrollPositionBottom animated:animated];
+    }
+}
+
+/** 滚动到指定 indexPath */
+- (void)wy_scrollToIndexPath:(NSIndexPath *)indexPath
+            atScrollPosition:(UITableViewScrollPosition)position
+                    animated:(BOOL)animated {
+    if (indexPath.section < [self numberOfSections] &&
+        indexPath.row < [self numberOfRowsInSection:indexPath.section]) {
+        [self scrollToRowAtIndexPath:indexPath atScrollPosition:position animated:animated];
     }
 }
 

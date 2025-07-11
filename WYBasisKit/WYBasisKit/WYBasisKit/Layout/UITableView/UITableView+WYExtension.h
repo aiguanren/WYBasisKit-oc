@@ -21,6 +21,14 @@ NS_ASSUME_NONNULL_BEGIN
 /** 禁用 Self-Sizing */
 - (void)wy_forbiddenSelfSizing;
 
+/** 滚动到最底部 */
+- (void)wy_scrollToBottomAtAnimated:(BOOL)animated;
+
+/** 滚动到指定 indexPath */
+- (void)wy_scrollToIndexPath:(NSIndexPath *)indexPath
+              atScrollPosition:(UITableViewScrollPosition)position
+                      animated:(BOOL)animated;
+
 @end
 
 NS_ASSUME_NONNULL_END

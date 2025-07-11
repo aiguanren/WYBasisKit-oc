@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		582E77352E212F69005F87FF /* UICollectionView+WYExtension.m in Sources */ = {isa = PBXBuildFile; fileRef = 582E77342E212F69005F87FF /* UICollectionView+WYExtension.m */; };
 		587CE04D2E0932CD00929E1D /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 587CE0402E0932CD00929E1D /* AppDelegate.m */; };
 		587CE04E2E0932CD00929E1D /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 587CE0452E0932CD00929E1D /* main.m */; };
 		587CE0502E0932CD00929E1D /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 587CE04B2E0932CD00929E1D /* ViewController.m */; };
@@ -74,6 +75,8 @@
 /* Begin PBXFileReference section */
 		007E002CFC3236A0D4CDC27B /* Pods_WYBasisKit.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_WYBasisKit.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		028A560C4806D815840733A2 /* Pods-WYBasisKit.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-WYBasisKit.debug.xcconfig"; path = "Target Support Files/Pods-WYBasisKit/Pods-WYBasisKit.debug.xcconfig"; sourceTree = "<group>"; };
+		582E77332E212F69005F87FF /* UICollectionView+WYExtension.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "UICollectionView+WYExtension.h"; sourceTree = "<group>"; };
+		582E77342E212F69005F87FF /* UICollectionView+WYExtension.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "UICollectionView+WYExtension.m"; sourceTree = "<group>"; };
 		587CE0222E0932C300929E1D /* WYBasisKit.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = WYBasisKit.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		587CE03F2E0932CD00929E1D /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		587CE0402E0932CD00929E1D /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
@@ -210,6 +213,15 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		582E77322E212F32005F87FF /* UICollectionView */ = {
+			isa = PBXGroup;
+			children = (
+				582E77332E212F69005F87FF /* UICollectionView+WYExtension.h */,
+				582E77342E212F69005F87FF /* UICollectionView+WYExtension.m */,
+			);
+			path = UICollectionView;
+			sourceTree = "<group>";
+		};
 		587CE0192E0932C300929E1D = {
 			isa = PBXGroup;
 			children = (
@@ -434,6 +446,7 @@
 		587CE0BD2E093A4000929E1D /* Layout */ = {
 			isa = PBXGroup;
 			children = (
+				582E77322E212F32005F87FF /* UICollectionView */,
 				587CE09B2E093A4000929E1D /* CALayer */,
 				587CE0A02E093A4000929E1D /* UIButton */,
 				587CE0A32E093A4000929E1D /* UIImageView */,
@@ -841,9 +854,13 @@
 			inputFileListPaths = (
 				"${PODS_ROOT}/Target Support Files/Pods-WYBasisKit/Pods-WYBasisKit-frameworks-${CONFIGURATION}-input-files.xcfilelist",
 			);
+			inputPaths = (
+			);
 			name = "[CP] Embed Pods Frameworks";
 			outputFileListPaths = (
 				"${PODS_ROOT}/Target Support Files/Pods-WYBasisKit/Pods-WYBasisKit-frameworks-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			outputPaths = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
@@ -863,6 +880,7 @@
 				587CE1172E093A4000929E1D /* Reachability.m in Sources */,
 				587CE1182E093A4000929E1D /* UITextField+WYExtension.m in Sources */,
 				587CE1192E093A4000929E1D /* NSObject+WYParse.m in Sources */,
+				582E77352E212F69005F87FF /* UICollectionView+WYExtension.m in Sources */,
 				587CE11A2E093A4000929E1D /* NSArray+WYExtension.m in Sources */,
 				587CE11B2E093A4000929E1D /* UIViewController+WYExtension.m in Sources */,
 				587CE11C2E093A4000929E1D /* UIImage+WYUserAvatar.m in Sources */,
