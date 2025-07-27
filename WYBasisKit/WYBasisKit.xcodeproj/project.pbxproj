@@ -272,14 +272,6 @@
 			path = BoolJudge;
 			sourceTree = "<group>";
 		};
-		587CE07E2E093A4000929E1D /* CNLog */ = {
-			isa = PBXGroup;
-			children = (
-				587CE07D2E093A4000929E1D /* Foundation+JSONLog.m */,
-			);
-			path = CNLog;
-			sourceTree = "<group>";
-		};
 		587CE0812E093A4000929E1D /* Countdown */ = {
 			isa = PBXGroup;
 			children = (
@@ -728,7 +720,6 @@
 				58E98C2F2E34DFD900936A80 /* EventHandler */,
 				58E98C282E34A30200936A80 /* LogManager */,
 				587CE07C2E093A4000929E1D /* BoolJudge */,
-				587CE07E2E093A4000929E1D /* CNLog */,
 				587CE0812E093A4000929E1D /* Countdown */,
 				587CE0982E093A4000929E1D /* Encryption */,
 				587CE0BD2E093A4000929E1D /* Layout */,
@@ -749,6 +740,7 @@
 			children = (
 				58E98C292E34A32100936A80 /* WYLogManager.h */,
 				58E98C2A2E34A32100936A80 /* WYLogManager.m */,
+				587CE07D2E093A4000929E1D /* Foundation+JSONLog.m */,
 			);
 			path = LogManager;
 			sourceTree = "<group>";
