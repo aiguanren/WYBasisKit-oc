@@ -140,5 +140,4 @@ static inline void wy_swizzleSelector(Class class, SEL originalSelector, SEL swi
 
 @end
 
-
 #endif
