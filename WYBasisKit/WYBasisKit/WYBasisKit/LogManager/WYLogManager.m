@@ -138,17 +138,6 @@ static WYLogFloatingButton *_floatingButton = nil;
 /// 将日志内容写入到文件
 + (void)saveLogToFile:(NSString *)log {
     dispatch_async([self logQueue], ^{
-        NSBundle *bundle = [NSBundle mainBundle];
-        BOOL sharing = [[bundle objectForInfoDictionaryKey:@"UIFileSharingEnabled"] boolValue];
-        BOOL openInPlace = [[bundle objectForInfoDictionaryKey:@"LSSupportsOpeningDocumentsInPlace"] boolValue];
-
-        // 检查 Info.plist 配置是否支持通过“文件”App访问
-        if (!sharing || !openInPlace) {
-            NSLog(@"检测到 Info.plist 未正确配置文件共享权限：\n请确保已设置以下键值以便通过“文件”App查看日志文件：\n"
-                   "<key>UIFileSharingEnabled</key><true/>\n"
-                   "<key>LSSupportsOpeningDocumentsInPlace</key><true/>\n\n");
-        }
-
         NSString *path = [self logFilePath];
         NSFileManager *fm = [NSFileManager defaultManager];
         NSString *dir = [path stringByDeletingLastPathComponent];

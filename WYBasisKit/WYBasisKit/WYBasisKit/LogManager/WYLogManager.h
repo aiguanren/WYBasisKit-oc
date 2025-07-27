@@ -9,7 +9,24 @@
 
 NS_ASSUME_NONNULL_BEGIN
 
-/// 日志输出模式
+/**
+ * 日志输出模式
+ *
+ * 重要提示：
+ * 1. 若选择包含文件存储的模式
+ *    需要在 Info.plist 中配置以下键值，否则无法直接通过设备“文件”App 查看日志：
+ *    <key>UIFileSharingEnabled</key>
+ *    <true/>
+ *    <key>LSSupportsOpeningDocumentsInPlace</key>
+ *    <true/>
+ *
+ * 2. 若在Info.plist中配置上述键值会导致整个 Documents 目录暴露在”文件“App 中，用户将能直接看到 Documents 下的所有文件（包括敏感数据）
+ *
+ * 3. 若只需共享日志文件，建议通过预览界面的分享功能导出日志（无需配置 Info.plist，不会暴露 Documents 目录），具体可通过以下方式查看日志：
+ *    - 调用 showPreview() 显示悬浮按钮
+ *    - 点击按钮进入日志预览界面
+ *    - 使用右上角分享功能导出日志文件
+ */
 typedef NS_ENUM(NSInteger, WYLogOutputMode) {
     /// 不保存日志，仅在 DEBUG 模式下输出到控制台（默认）
     DebugConsoleOnly = 0,
