@@ -23,6 +23,7 @@
 + (void)showLogPreview;
 @end
 
+NSString * const WYLogEntrySeparator = @"\n\n\n";
 @implementation WYLogManager
 
 /// 悬浮按钮实例
@@ -51,7 +52,7 @@ static WYLogFloatingButton *_floatingButton = nil;
     // 去除非法字符，防止文件名异常
     NSRegularExpression *regex = [NSRegularExpression regularExpressionWithPattern:@"[^a-zA-Z0-9_\\-]" options:0 error:nil];
     NSString *sanitized = [regex stringByReplacingMatchesInString:appName options:0 range:NSMakeRange(0, appName.length) withTemplate:@"_"];
-
+    
     NSString *docDir = NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES).firstObject;
     return [docDir stringByAppendingPathComponent:[NSString stringWithFormat:@"%@.log", sanitized]];
 }
@@ -77,12 +78,15 @@ static WYLogFloatingButton *_floatingButton = nil;
     };
 }
 
-/// 实际日志输出方法，包含时间戳、文件名、方法名、行号信息
-/// @param message 日志内容
-/// @param file 调用日志的源文件路径
-/// @param function 调用日志的方法名
-/// @param line 调用日志的行号
-/// @param outputMode 日志输出模式（控制台、文件等）
+/**
+ * 实际日志输出方法，包含时间戳、文件名、方法名、行号信息
+ *
+ * @param message     日志内容
+ * @param file        调用日志的源文件路径
+ * @param function    调用日志的方法名
+ * @param line        调用日志的行号
+ * @param outputMode  日志输出模式（控制台、文件等）
+ */
 + (void)outputMessage:(NSString *)message
                  file:(const char *)file
              function:(const char *)function
@@ -94,11 +98,11 @@ static WYLogFloatingButton *_floatingButton = nil;
     NSString *functionStr = function ? [NSString stringWithUTF8String:function] : @"UnknownFunction";
     NSString *fileName = [fileStr lastPathComponent];
     NSString *timestamp = [[self dateFormatter] stringFromDate:[NSDate date]];
-
+    
     // 格式化输出内容
-    NSString *consoleOutput = [NSString stringWithFormat:@"\n%@ ——> %@ ——> %@ ——> line:%ld\n\n%@\n\n\n",
-                                   timestamp, fileName, functionStr, (long)line, message];
-
+    NSString *consoleOutput = [NSString stringWithFormat:@"%@ ——> %@ ——> %@ ——> line:%ld\n\n%@%@",
+                               timestamp, fileName, functionStr, (long)line, message, WYLogEntrySeparator];
+    
     // 按模式选择输出目标
     switch (outputMode) {
         case DebugConsoleOnly:
@@ -141,7 +145,7 @@ static WYLogFloatingButton *_floatingButton = nil;
         NSString *path = [self logFilePath];
         NSFileManager *fm = [NSFileManager defaultManager];
         NSString *dir = [path stringByDeletingLastPathComponent];
-
+        
         // 创建目录和文件（如果不存在）
         if (![fm fileExistsAtPath:dir]) {
             [fm createDirectoryAtPath:dir withIntermediateDirectories:YES attributes:nil error:nil];
@@ -149,13 +153,13 @@ static WYLogFloatingButton *_floatingButton = nil;
         if (![fm fileExistsAtPath:path]) {
             [fm createFileAtPath:path contents:nil attributes:nil];
         }
-
+        
         NSFileHandle *handle = [NSFileHandle fileHandleForWritingAtPath:path];
         if (!handle) {
             NSLog(@"[WYLogManager] 打开日志文件失败\n");
             return;
         }
-
+        
         @try {
             [handle seekToEndOfFile];
             // 写入 BOM（首次写入时）
@@ -218,8 +222,8 @@ static WYLogFloatingButton *_floatingButton = nil;
     if (!targetView) return;
     
     CGRect frame = CGRectMake(targetView.bounds.size.width - 70,
-                             targetView.bounds.size.height - 150,
-                             50, 50);
+                              targetView.bounds.size.height - 150,
+                              50, 50);
     _floatingButton = [[WYLogFloatingButton alloc] initWithFrame:frame];
     [_floatingButton setTitle:@"日志" forState:UIControlStateNormal];
     _floatingButton.backgroundColor = [UIColor colorWithRed:0.0 green:0.478 blue:1.0 alpha:0.8];
@@ -295,16 +299,16 @@ static WYLogFloatingButton *_floatingButton = nil;
     
     // 关闭按钮
     self.navigationItem.leftBarButtonItem = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemClose
-                                                                                         target:self
-                                                                                         action:@selector(close)];
+                                                                                          target:self
+                                                                                          action:@selector(close)];
     
     // 清除和分享按钮
     UIBarButtonItem *clearItem = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemTrash
-                                                                              target:self
-                                                                              action:@selector(clear)];
+                                                                               target:self
+                                                                               action:@selector(clear)];
     UIBarButtonItem *shareItem = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemAction
-                                                                              target:self
-                                                                              action:@selector(share)];
+                                                                               target:self
+                                                                               action:@selector(share)];
     self.navigationItem.rightBarButtonItems = @[shareItem, clearItem];
     
     // 搜索框
@@ -334,8 +338,8 @@ static WYLogFloatingButton *_floatingButton = nil;
 - (void)loadLogs {
     NSError *error;
     NSString *logContent = [NSString stringWithContentsOfFile:[WYLogManager logFilePath]
-                                                    encoding:NSUTF8StringEncoding
-                                                       error:&error];
+                                                     encoding:NSUTF8StringEncoding
+                                                        error:&error];
     if (error || !logContent) {
         _logs = @"暂无日志";
     } else {
@@ -371,16 +375,23 @@ static WYLogFloatingButton *_floatingButton = nil;
     if (searchText.length == 0) {
         _textView.text = _logs;
     } else {
-        NSMutableString *filteredLogs = [NSMutableString string];
-        NSArray *lines = [_logs componentsSeparatedByCharactersInSet:[NSCharacterSet newlineCharacterSet]];
+        // 用日志分隔符分割日志块
+        NSArray *logChunks = [self.logs componentsSeparatedByString:WYLogEntrySeparator];
+        NSMutableArray *matchedChunks = [NSMutableArray array];
         
-        for (NSString *line in lines) {
-            if ([line localizedCaseInsensitiveContainsString:searchText]) {
-                [filteredLogs appendFormat:@"%@\n\n\n\n", line];
+        // 匹配包含搜索词的完整日志块
+        for (NSString *chunk in logChunks) {
+            if ([chunk localizedCaseInsensitiveContainsString:searchText]) {
+                [matchedChunks addObject:chunk];
             }
         }
         
-        _textView.text = filteredLogs.length > 0 ? filteredLogs : @"未找到匹配的日志内容";
+        if (matchedChunks.count > 0) {
+            // 重新组合匹配的日志块
+            self.textView.text = [matchedChunks componentsJoinedByString:WYLogEntrySeparator];
+        } else {
+            self.textView.text = @"未找到匹配的日志内容";
+        }
     }
 }
 
