@@ -33,6 +33,9 @@
         NSLog(@"AppEventButtonRestoreDefault, data = %@",data);
     }];
     
+    // 屏蔽控制台约束输出
+    [[NSUserDefaults standardUserDefaults] setValue:@(NO) forKey:@"_UIConstraintBasedLayoutLogUnsatisfiable"];
+    
     return YES;
 }
 

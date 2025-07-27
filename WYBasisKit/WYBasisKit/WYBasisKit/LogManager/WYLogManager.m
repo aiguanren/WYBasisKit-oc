@@ -57,15 +57,15 @@ static WYLogFloatingButton *_floatingButton = nil;
 }
 
 /// 默认输出模式 DebugConsoleOnly，带调用位置信息
-+ (void (^)(NSString *, NSString *, NSString *, NSInteger))output {
-    return ^(NSString *msg, NSString *file, NSString *function, NSInteger line) {
++ (void (^)(NSString *, const char *, const char *, NSInteger))output {
+    return ^(NSString *msg, const char *file, const char *function, NSInteger line) {
         [self outputMessage:msg file:file function:function line:line mode:DebugConsoleOnly];
     };
 }
 
 /// 支持自定义日志输出模式，带调用位置信息
-+ (void (^)(WYLogOutputMode, NSString *, NSString *, NSString *, NSInteger))outputWithMode {
-    return ^(WYLogOutputMode mode, NSString *msg, NSString *file, NSString *function, NSInteger line) {
++ (void (^)(WYLogOutputMode, NSString *, const char *, const char *, NSInteger))outputWithMode {
+    return ^(WYLogOutputMode mode, NSString *msg, const char *file, const char *function, NSInteger line) {
         [self outputMessage:msg file:file function:function line:line mode:mode];
     };
 }
@@ -84,17 +84,20 @@ static WYLogFloatingButton *_floatingButton = nil;
 /// @param line 调用日志的行号
 /// @param outputMode 日志输出模式（控制台、文件等）
 + (void)outputMessage:(NSString *)message
-                 file:(NSString *)file
-             function:(NSString *)function
+                 file:(const char *)file
+             function:(const char *)function
                  line:(NSInteger)line
                  mode:(WYLogOutputMode)outputMode {
     
+    // 安全转换 C 字符串到 NSString
+    NSString *fileStr = file ? [NSString stringWithUTF8String:file] : @"UnknownFile";
+    NSString *functionStr = function ? [NSString stringWithUTF8String:function] : @"UnknownFunction";
+    NSString *fileName = [fileStr lastPathComponent];
     NSString *timestamp = [[self dateFormatter] stringFromDate:[NSDate date]];
-    NSString *fileName = [file lastPathComponent]; // 仅保留文件名
 
     // 格式化输出内容
     NSString *consoleOutput = [NSString stringWithFormat:@"\n%@ ——> %@ ——> %@ ——> line:%ld\n\n%@\n\n\n",
-                               timestamp, fileName, function, (long)line, message];
+                                   timestamp, fileName, functionStr, (long)line, message];
 
     // 按模式选择输出目标
     switch (outputMode) {

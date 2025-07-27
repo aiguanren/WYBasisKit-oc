@@ -24,6 +24,9 @@
     [_window makeKeyAndVisible];
     _window.rootViewController = [[UINavigationController alloc]initWithRootViewController:[[ViewController alloc]init]];
     
+    // 屏蔽控制台约束输出
+    [[NSUserDefaults standardUserDefaults] setValue:@(NO) forKey:@"_UIConstraintBasedLayoutLogUnsatisfiable"];
+    
     return YES;
 }
 

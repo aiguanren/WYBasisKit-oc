@@ -94,13 +94,6 @@
 ///只运行一次的GCD
 #define WY__GCD_OnceThread(block) static dispatch_once_t onceToken; dispatch_once(&onceToken, block);
 
-///DEBUG打印日志
-#ifdef DEBUG
-# define NSLog(FORMAT, ...) printf("[%s 行号:%d]:\n%s\n\n\n\n",__FUNCTION__,__LINE__,[[NSString stringWithFormat:FORMAT, ##__VA_ARGS__] UTF8String])
-#else
-# define NSLog(FORMAT, ...)
-#endif
-
 ///由角度、弧度值转换
 #define wy_degreesToRadian(degrees) (M_PI * (degrees) / 180.0)  //角度获取弧度
 #define wy_radianToDegrees(radian) (radian*180.0)/(M_PI)  //弧度获取角度

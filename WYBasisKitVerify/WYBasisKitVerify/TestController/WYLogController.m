@@ -21,7 +21,7 @@
     
     WYLogManager.clearLogFile();
     
-    WYLogManager.outputWithMode(AlwaysConsoleOnly, @"非宏定义方法调用", [NSString stringWithUTF8String:__FILE__], [NSString stringWithUTF8String:__FUNCTION__], __LINE__);
+    WYLogManager.outputWithMode(AlwaysConsoleOnly, @"非宏定义方法调用", __FILE__, __FUNCTION__, __LINE__);
     
     NSLog(@"不保存日志，仅在 DEBUG 模式下输出到控制台（默认）");
     
@@ -33,7 +33,7 @@
     
     NSLogWithMode(OnlySaveToFile, @"仅保存日志，DEBUG 和 RELEASE 均不输出到控制台");
     
-    NSLog(@"eventHandlers = %@",[WYEventHandler shared].eventHandlers);
+    NSLogWithMode(AlwaysConsoleAndFile, @"eventHandlers = %@",[WYEventHandler shared].eventHandlers);
     
     [[WYEventHandler shared] removeEvent:@"AppEventButtonRestoreDefault" target:nil];
     

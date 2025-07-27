@@ -27,17 +27,20 @@ typedef NS_ENUM(NSInteger, WYLogOutputMode) {
     OnlySaveToFile
 };
 
-/// 输出日志（仅输出到控制台）
-#define NSLog(msg) \
-    WYLogManager.output(msg, [NSString stringWithUTF8String:__FILE__], \
-                             [NSString stringWithUTF8String:__FUNCTION__], \
-                             __LINE__)
+/// 输出日志（仅输出到控制台）支持格式化参数
+#define NSLog(format, ...) \
+    WYLogManager.output([NSString stringWithFormat:format, ##__VA_ARGS__], \
+                        __FILE__, \
+                        __FUNCTION__, \
+                        __LINE__)
 
-/// 输出日志（自定义日志模式）
-#define NSLogWithMode(mode, msg) \
-    WYLogManager.outputWithMode(mode, msg, [NSString stringWithUTF8String:__FILE__], \
-                                         [NSString stringWithUTF8String:__FUNCTION__], \
-                                         __LINE__)
+/// 输出日志（自定义日志模式）支持格式化参数
+#define NSLogWithMode(mode, format, ...) \
+    WYLogManager.outputWithMode(mode, \
+                               [NSString stringWithFormat:format, ##__VA_ARGS__], \
+                               __FILE__, \
+                               __FUNCTION__, \
+                               __LINE__)
 
 @interface WYLogManager : NSObject
 
@@ -45,10 +48,10 @@ typedef NS_ENUM(NSInteger, WYLogOutputMode) {
 @property (class, nonatomic, copy, readonly) NSString *logFilePath;
 
 /// 输出日志（仅输出到控制台）
-@property (class, nonatomic, copy, readonly) void (^output)(NSString *message, NSString *file, NSString *function, NSInteger line);
+@property (class, nonatomic, copy, readonly) void (^output)(NSString *message, const char *file, const char *function, NSInteger line);
 
 /// 输出日志（自定义日志模式）
-@property (class, nonatomic, copy, readonly) void (^outputWithMode)(WYLogOutputMode mode, NSString *message, NSString *file, NSString *function, NSInteger line);
+@property (class, nonatomic, copy, readonly) void (^outputWithMode)(WYLogOutputMode mode, NSString *message, const char *file, const char *function, NSInteger line);
 
 /// 清除日志文件
 @property (class, nonatomic, copy, readonly) void (^clearLogFile)(void);
