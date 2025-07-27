@@ -7,7 +7,6 @@
 //
 
 #import "TestTextFieldViewController.h"
-#import "UITextField+WYExtension.h"
 @import WYBasisKit_oc;
 
 @interface TestTextFieldViewController ()

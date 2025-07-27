@@ -7,7 +7,6 @@
 //
 
 #import "TestTextViewViewController.h"
-#import "UITextView+WYExtension.h"
 @import WYBasisKit_oc;
 
 @interface TestTextViewViewController ()

@@ -3,7 +3,7 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 51;
+	objectVersion = 54;
 	objects = {
 
 /* Begin PBXBuildFile section */
@@ -25,6 +25,7 @@
 		587CE0782E093A0000929E1D /* TestLoadingStateViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 587CE05C2E093A0000929E1D /* TestLoadingStateViewController.m */; };
 		587CE0792E093A0000929E1D /* TestUserAvatarViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 587CE0682E093A0000929E1D /* TestUserAvatarViewController.m */; };
 		587CE14D2E093A7F00929E1D /* MainViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 587CE14C2E093A7F00929E1D /* MainViewController.m */; };
+		58E98C2E2E34A6CA00936A80 /* WYLogController.m in Sources */ = {isa = PBXBuildFile; fileRef = 58E98C2D2E34A6CA00936A80 /* WYLogController.m */; };
 		AAA708692E1C04900040F2ED /* WYAttributedController.m in Sources */ = {isa = PBXBuildFile; fileRef = AAA708682E1C04900040F2ED /* WYAttributedController.m */; };
 		AAC342832E1BE2DB0043CC0B /* WYArchivedController.m in Sources */ = {isa = PBXBuildFile; fileRef = AAC342812E1BE2DB0043CC0B /* WYArchivedController.m */; };
 		C04D8D06E4735EF7F328B2A7 /* Pods_WYBasisKitVerify.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D521FBE9CE4B66E0B3ED50F3 /* Pods_WYBasisKitVerify.framework */; };
@@ -65,6 +66,8 @@
 		587CE06C2E093A0000929E1D /* WYTestVisualController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = WYTestVisualController.m; sourceTree = "<group>"; };
 		587CE14B2E093A7F00929E1D /* MainViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MainViewController.h; sourceTree = "<group>"; };
 		587CE14C2E093A7F00929E1D /* MainViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MainViewController.m; sourceTree = "<group>"; };
+		58E98C2C2E34A6CA00936A80 /* WYLogController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = WYLogController.h; sourceTree = "<group>"; };
+		58E98C2D2E34A6CA00936A80 /* WYLogController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = WYLogController.m; sourceTree = "<group>"; };
 		8E940F1FE73BCDAE79B827CD /* Pods-WYBasisKitVerify.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-WYBasisKitVerify.release.xcconfig"; path = "Target Support Files/Pods-WYBasisKitVerify/Pods-WYBasisKitVerify.release.xcconfig"; sourceTree = "<group>"; };
 		AAA708672E1C04900040F2ED /* WYAttributedController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = WYAttributedController.h; sourceTree = "<group>"; };
 		AAA708682E1C04900040F2ED /* WYAttributedController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = WYAttributedController.m; sourceTree = "<group>"; };
@@ -152,6 +155,8 @@
 				AAC342812E1BE2DB0043CC0B /* WYArchivedController.m */,
 				AAA708672E1C04900040F2ED /* WYAttributedController.h */,
 				AAA708682E1C04900040F2ED /* WYAttributedController.m */,
+				58E98C2C2E34A6CA00936A80 /* WYLogController.h */,
+				58E98C2D2E34A6CA00936A80 /* WYLogController.m */,
 			);
 			path = TestController;
 			sourceTree = "<group>";
@@ -291,6 +296,7 @@
 				587CE06E2E093A0000929E1D /* TestTextFieldViewController.m in Sources */,
 				587CE06F2E093A0000929E1D /* TestLableViewController.m in Sources */,
 				587CE0702E093A0000929E1D /* TestWebViewViewController.m in Sources */,
+				58E98C2E2E34A6CA00936A80 /* WYLogController.m in Sources */,
 				587CE0712E093A0000929E1D /* TestCallMethodController.m in Sources */,
 				587CE0722E093A0000929E1D /* TestTextViewViewController.m in Sources */,
 				587CE0732E093A0000929E1D /* WYTestVisualController.m in Sources */,

@@ -13,6 +13,8 @@
 
 @interface MainViewController ()<UITableViewDelegate,UITableViewDataSource>
 
+@property (nonatomic, strong) NSDictionary <NSString *, NSString *>*cellObjs;
+
 @property (nonatomic, weak) UITableView *tableView;
 
 @end
@@ -43,12 +45,39 @@
     [super viewDidLoad];
     // Do any additional setup after loading the view.
     self.navigationItem.title = @"首页";
+    
+    _cellObjs = @{
+        @"WKWebView": @"TestWebViewViewController",
+        @"UILable": @"TestLableViewController",
+        @"UITextView": @"TestTextViewViewController",
+        @"UITextField": @"TestTextFieldViewController",
+        @"UIButton": @"TestTUIButtonViewController",
+        @"BoolJudge": @"TestBoolJudgeViewController",
+        @"LoadingState": @"TestLoadingStateViewController",
+        @"userAvatar": @"TestUserAvatarViewController",
+        @"pagingView": @"TestPagingViewController",
+        @"UIAlert": @"TestUIAlertController",
+        @"根据类名跨类调用方法": @"TestCallMethodController",
+        @"圆角、边框、阴影、渐变": @"WYTestVisualController",
+        @"归档解归档": @"WYArchivedController",
+        @"富文本": @"WYAttributedController",
+        @"日志输出与保存": @"WYLogController"
+    };
+    
     self.tableView.backgroundColor = [UIColor whiteColor];
+    
+    [[WYEventHandler shared] registerEvent:@"AppEventButtonDidSelected" target:self handler:^(id  _Nullable data) {
+        NSLog(@"AppEventButtonDidSelected, data = %@",data);
+    }];
+    
+    [[WYEventHandler shared] registerEvent:@"AppEventButtonRestoreDefault" target:self handler:^(id  _Nullable data) {
+        NSLog(@"AppEventButtonRestoreDefault, data = %@",data);
+    }];
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
     
-    return [self section].count;
+    return _cellObjs.count;
 }
 
 - (CGFloat)tableView:(UITableView *)tableView heightForHeaderInSection:(NSInteger)section {
@@ -78,7 +107,7 @@
         cell.wy_rightArrowImage = [UIImage imageNamed:@"jiantou"];
     }
     cell.backgroundColor = [UIColor whiteColor];
-    cell.textLabel.text = [self section][indexPath.row];
+    cell.textLabel.text = _cellObjs.allKeys[indexPath.row];
     cell.detailTextLabel.text = [NSString stringWithFormat:@"%ld",(long)indexPath.row];
     
     return cell;
@@ -88,33 +117,9 @@
     
     [tableView deselectRowAtIndexPath:indexPath animated:YES];
     
-    UIViewController *vc = [[NSClassFromString([self controllers][indexPath.row]) alloc] init];;
-    vc.navigationItem.title = [self section][indexPath.row];
+    UIViewController *vc = [[NSClassFromString(_cellObjs.allValues[indexPath.row]) alloc] init];;
+    vc.navigationItem.title = _cellObjs.allKeys[indexPath.row];
     [self.navigationController pushViewController:vc animated:YES];
-}
-
-- (NSArray *)section {
-    
-    NSArray *sectionTitleAry = @[@"WKWebView",@"UILable",@"UITextView",@"UITextField",@"UIButton",@"BoolJudge",@"LoadingState",@"userAvatar",@"pagingView",@"UIAlert", @"根据类名跨类调用方法", @"圆角、边框、阴影、渐变", @"归档解归档", @"富文本"];
-    
-    return sectionTitleAry;
-}
-
-- (NSArray <NSString *> *)controllers {
-    return @[@"TestWebViewViewController",
-             @"TestLableViewController",
-             @"TestTextViewViewController",
-             @"TestTextFieldViewController",
-             @"TestTUIButtonViewController",
-             @"TestBoolJudgeViewController",
-             @"TestLoadingStateViewController",
-             @"TestUserAvatarViewController",
-             @"TestPagingViewController",
-             @"TestUIAlertController",
-             @"TestCallMethodController",
-             @"WYTestVisualController",
-             @"WYArchivedController",
-             @"WYAttributedController"];
 }
 
 - (UITableView *)tableView {

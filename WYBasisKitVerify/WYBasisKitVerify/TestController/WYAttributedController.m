@@ -6,8 +6,8 @@
 //
 
 #import "WYAttributedController.h"
-#import "NSMutableAttributedString+WYExtension.h"
 #import <Masonry/Masonry.h>
+@import WYBasisKit_oc;
 
 @interface WYAttributedController ()
 

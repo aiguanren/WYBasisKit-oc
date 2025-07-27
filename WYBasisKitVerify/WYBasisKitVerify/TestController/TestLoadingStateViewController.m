@@ -7,8 +7,6 @@
 //
 
 #import "TestLoadingStateViewController.h"
-#import "UITextField+WYExtension.h"
-#import "UITableViewCell+WYExtension.h"
 @import WYBasisKit_oc;
 
 @interface TestLoadingStateViewController ()<UITableViewDataSource,UITableViewDelegate>

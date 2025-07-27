@@ -7,8 +7,6 @@
 //
 
 #import "TestTUIButtonViewController.h"
-#import "UIImage+wyExtension.h"
-#import "UIButton+WYLayout.h"
 @import WYBasisKit_oc;
 
 @interface TestTUIButtonViewController ()
@@ -67,6 +65,12 @@
     NSLog(@"nTitle = %@\nhTitle = %@\nsTitle = %@",sender.wy_nTitle,sender.wy_hTitle,sender.wy_sTitle);
     NSLog(@"title_nColor = %@\ntitle_hColor = %@\ntitle_sColor = %@",sender.wy_title_nColor,sender.wy_title_hColor,sender.wy_title_sColor);
     NSLog(@"nImage = %@\nhImage = %@\nsImage = %@",sender.wy_nImage,sender.wy_hImage,sender.wy_sImage);
+    
+    if (sender.selected == YES) {
+        [[WYEventHandler shared] responseEvent:@"AppEventButtonDidSelected" data:sender.wy_sTitle];
+    }else {
+        [[WYEventHandler shared] responseEvent:@"AppEventButtonRestoreDefault" data:sender.wy_nTitle];
+    }
 }
 
 - (void)dealloc {

@@ -7,7 +7,6 @@
 //
 
 #import "TestUserAvatarViewController.h"
-#import "UIImage+WYUserAvatar.h"
 @import WYBasisKit_oc;
 
 @interface TestUserAvatarViewController ()

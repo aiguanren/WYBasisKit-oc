@@ -8,6 +8,7 @@
 
 #import "AppDelegate.h"
 #import "MainViewController.h"
+@import WYBasisKit_oc;
 
 @interface AppDelegate ()
 
@@ -23,6 +24,14 @@
     _window.backgroundColor = [UIColor whiteColor];
     [_window makeKeyAndVisible];
     _window.rootViewController = [[UINavigationController alloc]initWithRootViewController:[[MainViewController alloc]init]];
+    
+    [[WYEventHandler shared] registerEvent:@"AppEventButtonDidSelected" target:self handler:^(id  _Nullable data) {
+        NSLog(@"AppEventButtonDidSelected, data = %@",data);
+    }];
+    
+    [[WYEventHandler shared] registerEvent:@"AppEventButtonRestoreDefault" target:self handler:^(id  _Nullable data) {
+        NSLog(@"AppEventButtonRestoreDefault, data = %@",data);
+    }];
     
     return YES;
 }

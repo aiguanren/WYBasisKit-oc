@@ -7,9 +7,6 @@
 //
 
 #import "TestLableViewController.h"
-#import "UILabel+WYRichText.h"
-#import "NSMutableParagraphStyle+WYExtension.h"
-#import "NSMutableAttributedString+WYExtension.h"
 @import WYBasisKit_oc;
 
 @interface TestLableViewController ()<WYRichTextDelegate>

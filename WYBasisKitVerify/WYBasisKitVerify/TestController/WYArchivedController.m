@@ -6,7 +6,7 @@
 //
 
 #import "WYArchivedController.h"
-#import "NSObject+WYArchived.h"
+@import WYBasisKit_oc;
 
 @interface WYTestModel: NSObject
 

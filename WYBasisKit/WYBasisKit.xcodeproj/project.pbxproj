@@ -68,6 +68,8 @@
 		587CE1482E093A4000929E1D /* EmojiFile in Resources */ = {isa = PBXBuildFile; fileRef = 587CE0F22E093A4000929E1D /* EmojiFile */; };
 		587CE1492E093A4000929E1D /* bank.plist in Resources */ = {isa = PBXBuildFile; fileRef = 587CE0F12E093A4000929E1D /* bank.plist */; };
 		587CE14A2E093A4000929E1D /* Loading.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 587CE0C82E093A4000929E1D /* Loading.bundle */; };
+		58E98C2B2E34A32100936A80 /* WYLogManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 58E98C2A2E34A32100936A80 /* WYLogManager.m */; };
+		58E98C322E34DFEE00936A80 /* WYEventHandler.m in Sources */ = {isa = PBXBuildFile; fileRef = 58E98C312E34DFEE00936A80 /* WYEventHandler.m */; };
 		AAC3427F2E1BE10C0043CC0B /* NSObject+WYArchived.m in Sources */ = {isa = PBXBuildFile; fileRef = AAC3427E2E1BE10B0043CC0B /* NSObject+WYArchived.m */; };
 		D55B09F221EFCA1626ABD695 /* Pods_WYBasisKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 007E002CFC3236A0D4CDC27B /* Pods_WYBasisKit.framework */; };
 /* End PBXBuildFile section */
@@ -196,6 +198,10 @@
 		587CE10F2E093A4000929E1D /* WYProtocolManager.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = WYProtocolManager.m; sourceTree = "<group>"; };
 		587CE1112E093A4000929E1D /* RefreshView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = RefreshView.h; sourceTree = "<group>"; };
 		587CE1122E093A4000929E1D /* RefreshView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = RefreshView.m; sourceTree = "<group>"; };
+		58E98C292E34A32100936A80 /* WYLogManager.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = WYLogManager.h; sourceTree = "<group>"; };
+		58E98C2A2E34A32100936A80 /* WYLogManager.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = WYLogManager.m; sourceTree = "<group>"; };
+		58E98C302E34DFEE00936A80 /* WYEventHandler.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = WYEventHandler.h; sourceTree = "<group>"; };
+		58E98C312E34DFEE00936A80 /* WYEventHandler.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = WYEventHandler.m; sourceTree = "<group>"; };
 		AAC3427D2E1BE10B0043CC0B /* NSObject+WYArchived.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "NSObject+WYArchived.h"; sourceTree = "<group>"; };
 		AAC3427E2E1BE10B0043CC0B /* NSObject+WYArchived.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "NSObject+WYArchived.m"; sourceTree = "<group>"; };
 		BFF0DDDD6D4530AA1B323E27 /* Pods-WYBasisKit.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-WYBasisKit.release.xcconfig"; path = "Target Support Files/Pods-WYBasisKit/Pods-WYBasisKit.release.xcconfig"; sourceTree = "<group>"; };
@@ -719,6 +725,8 @@
 		587CE1142E093A4000929E1D /* WYBasisKit */ = {
 			isa = PBXGroup;
 			children = (
+				58E98C2F2E34DFD900936A80 /* EventHandler */,
+				58E98C282E34A30200936A80 /* LogManager */,
 				587CE07C2E093A4000929E1D /* BoolJudge */,
 				587CE07E2E093A4000929E1D /* CNLog */,
 				587CE0812E093A4000929E1D /* Countdown */,
@@ -734,6 +742,24 @@
 				587CE1132E093A4000929E1D /* RefreshView */,
 			);
 			path = WYBasisKit;
+			sourceTree = "<group>";
+		};
+		58E98C282E34A30200936A80 /* LogManager */ = {
+			isa = PBXGroup;
+			children = (
+				58E98C292E34A32100936A80 /* WYLogManager.h */,
+				58E98C2A2E34A32100936A80 /* WYLogManager.m */,
+			);
+			path = LogManager;
+			sourceTree = "<group>";
+		};
+		58E98C2F2E34DFD900936A80 /* EventHandler */ = {
+			isa = PBXGroup;
+			children = (
+				58E98C302E34DFEE00936A80 /* WYEventHandler.h */,
+				58E98C312E34DFEE00936A80 /* WYEventHandler.m */,
+			);
+			path = EventHandler;
 			sourceTree = "<group>";
 		};
 		5EB58567A9D29D2431D32BBC /* Frameworks */ = {
@@ -854,13 +880,9 @@
 			inputFileListPaths = (
 				"${PODS_ROOT}/Target Support Files/Pods-WYBasisKit/Pods-WYBasisKit-frameworks-${CONFIGURATION}-input-files.xcfilelist",
 			);
-			inputPaths = (
-			);
 			name = "[CP] Embed Pods Frameworks";
 			outputFileListPaths = (
 				"${PODS_ROOT}/Target Support Files/Pods-WYBasisKit/Pods-WYBasisKit-frameworks-${CONFIGURATION}-output-files.xcfilelist",
-			);
-			outputPaths = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
@@ -885,6 +907,7 @@
 				587CE11B2E093A4000929E1D /* UIViewController+WYExtension.m in Sources */,
 				587CE11C2E093A4000929E1D /* UIImage+WYUserAvatar.m in Sources */,
 				587CE11D2E093A4000929E1D /* NSDecimalNumber+WYExtension.m in Sources */,
+				58E98C2B2E34A32100936A80 /* WYLogManager.m in Sources */,
 				587CE11E2E093A4000929E1D /* UILabel+WYRichText.m in Sources */,
 				587CE11F2E093A4000929E1D /* NSData+CommonCrypto.m in Sources */,
 				587CE1202E093A4000929E1D /* NSString+Base64.m in Sources */,
@@ -896,6 +919,7 @@
 				587CE1262E093A4000929E1D /* UITableView+WYExtension.m in Sources */,
 				AAC3427F2E1BE10C0043CC0B /* NSObject+WYArchived.m in Sources */,
 				587CE1272E093A4000929E1D /* LoadingView.m in Sources */,
+				58E98C322E34DFEE00936A80 /* WYEventHandler.m in Sources */,
 				587CE1282E093A4000929E1D /* UIView+WYExtension.m in Sources */,
 				587CE1292E093A4000929E1D /* UIAlertController+WYExtension.m in Sources */,
 				587CE12A2E093A4000929E1D /* UITextView+WYExtension.m in Sources */,

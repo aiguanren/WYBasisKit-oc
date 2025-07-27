@@ -7,7 +7,6 @@
 //
 
 #import "TestPagingViewController.h"
-#import "WYPagingView.h"
 @import WYBasisKit_oc;
 
 @interface TestPagingViewController ()
