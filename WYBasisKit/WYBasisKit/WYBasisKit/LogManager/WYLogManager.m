@@ -13,9 +13,25 @@
 @end
 
 // 日志预览控制器
-@interface WYLogPreviewViewController : UIViewController <UISearchBarDelegate>
-@property (nonatomic, strong) UITextView *textView;
+@interface WYLogPreviewViewController : UIViewController <UISearchBarDelegate, UITableViewDataSource>
+
+@property (nonatomic, strong) UITableView *tableView;
 @property (nonatomic, copy) NSString *logs;
+@property (nonatomic, strong) NSArray<NSString *> *logChunks; // 每条日志记录
+@property (nonatomic, strong) NSArray<NSString *> *filteredLogChunks; // 当前搜索后的日志列表
+@property (nonatomic, copy) NSString *currentSearchText; // 当前搜索关键词
+
+@end
+
+// 自定义日志 Cell
+@interface WYLogCell : UITableViewCell
+
+@property (nonatomic, strong) UILabel *logLabel;
+@property (nonatomic, strong) UIButton *logCopyButton;
+@property (nonatomic, copy) void (^copyAction)(void);
+
+- (void)configureWithText:(NSString *)text keyword:(NSString *)keyword canCopyed:(BOOL)canCopyed;
+
 @end
 
 // 日志行为封装（用于按钮事件）
@@ -250,7 +266,7 @@ static WYLogFloatingButton *_floatingButton = nil;
 
 @end
 
-// 悬浮按钮实现
+// MARK: - 悬浮按钮实现
 @implementation WYLogFloatingButton {
     CGPoint _startPoint;
 }
@@ -290,7 +306,74 @@ static WYLogFloatingButton *_floatingButton = nil;
 
 @end
 
-// 日志预览控制器实现
+// MARK: - 自定义日志Cell实现
+@implementation WYLogCell
+
+- (instancetype)initWithStyle:(UITableViewCellStyle)style reuseIdentifier:(NSString *)reuseIdentifier {
+    self = [super initWithStyle:style reuseIdentifier:reuseIdentifier];
+    if (self) {
+        self.selectionStyle = UITableViewCellSelectionStyleNone;
+        
+        // 日志标签
+        _logLabel = [[UILabel alloc] init];
+        _logLabel.numberOfLines = 0;
+        _logLabel.font = [UIFont monospacedSystemFontOfSize:13 weight:UIFontWeightRegular];
+        _logLabel.translatesAutoresizingMaskIntoConstraints = NO;
+        [self.contentView addSubview:_logLabel];
+        
+        // 复制按钮
+        _logCopyButton = [UIButton buttonWithType:UIButtonTypeSystem];
+        [_logCopyButton setTitle:@"复制" forState:UIControlStateNormal];
+        _logCopyButton.titleLabel.font = [UIFont systemFontOfSize:13 weight:UIFontWeightMedium];
+        _logCopyButton.contentEdgeInsets = UIEdgeInsetsMake(4, 10, 4, 10);
+        _logCopyButton.translatesAutoresizingMaskIntoConstraints = NO;
+        _logCopyButton.layer.cornerRadius = 5;
+        _logCopyButton.layer.borderWidth = 1;
+        _logCopyButton.layer.masksToBounds = YES;
+        [_logCopyButton addTarget:self action:@selector(handleCopy) forControlEvents:UIControlEventTouchUpInside];
+        [self.contentView addSubview:_logCopyButton];
+        
+        // 布局约束
+        [NSLayoutConstraint activateConstraints:@[
+            [_logCopyButton.topAnchor constraintEqualToAnchor:_logLabel.topAnchor constant:2],
+            [_logCopyButton.trailingAnchor constraintEqualToAnchor:self.contentView.trailingAnchor constant:-10],
+            [_logCopyButton.widthAnchor constraintGreaterThanOrEqualToConstant:50],
+            
+            [_logLabel.topAnchor constraintEqualToAnchor:self.contentView.topAnchor constant:10],
+            [_logLabel.leadingAnchor constraintEqualToAnchor:self.contentView.leadingAnchor constant:10],
+            [_logLabel.trailingAnchor constraintLessThanOrEqualToAnchor:_logCopyButton.leadingAnchor constant:-10],
+            [_logLabel.bottomAnchor constraintEqualToAnchor:self.contentView.bottomAnchor constant:-20]
+        ]];
+    }
+    return self;
+}
+
+- (void)configureWithText:(NSString *)text keyword:(NSString *)keyword canCopyed:(BOOL)canCopyed {
+    if (keyword && keyword.length > 0) {
+        NSMutableAttributedString *attributed = [[NSMutableAttributedString alloc] initWithString:text];
+        NSRange range = [text rangeOfString:keyword options:NSCaseInsensitiveSearch];
+        if (range.location != NSNotFound) {
+            [attributed addAttribute:NSBackgroundColorAttributeName value:[UIColor yellowColor] range:range];
+        }
+        self.logLabel.attributedText = attributed;
+    } else {
+        self.logLabel.text = text;
+    }
+    
+    _logCopyButton.enabled = canCopyed;
+    UIColor *borderColor = canCopyed ? _logCopyButton.titleLabel.textColor : [UIColor lightGrayColor];
+    _logCopyButton.layer.borderColor = borderColor.CGColor;
+}
+
+- (void)handleCopy {
+    if (self.copyAction) {
+        self.copyAction();
+    }
+}
+
+@end
+
+// MARK: - 日志预览控制器实现
 @implementation WYLogPreviewViewController
 
 - (void)viewDidLoad {
@@ -317,22 +400,35 @@ static WYLogFloatingButton *_floatingButton = nil;
     searchBar.placeholder = @"搜索日志关键字";
     self.navigationItem.titleView = searchBar;
     
-    // 文本视图
-    _textView = [[UITextView alloc] init];
-    _textView.editable = NO;
-    _textView.font = [UIFont monospacedSystemFontOfSize:13 weight:UIFontWeightRegular];
-    _textView.translatesAutoresizingMaskIntoConstraints = NO;
-    [self.view addSubview:_textView];
+    // 表格视图
+    _tableView = [[UITableView alloc] initWithFrame:CGRectZero style:UITableViewStylePlain];
+    _tableView.translatesAutoresizingMaskIntoConstraints = NO;
+    [_tableView registerClass:[WYLogCell class] forCellReuseIdentifier:@"WYLogCell"];
+    _tableView.dataSource = self;
+    _tableView.estimatedRowHeight = 100;
+    _tableView.rowHeight = UITableViewAutomaticDimension;
+    _tableView.separatorStyle = UITableViewCellSeparatorStyleNone;
+    _tableView.keyboardDismissMode = UIScrollViewKeyboardDismissModeOnDrag; // 滑动收起键盘
+    [self.view addSubview:_tableView];
     
     // 布局约束
     [NSLayoutConstraint activateConstraints:@[
-        [_textView.topAnchor constraintEqualToAnchor:self.view.safeAreaLayoutGuide.topAnchor],
-        [_textView.leadingAnchor constraintEqualToAnchor:self.view.leadingAnchor],
-        [_textView.trailingAnchor constraintEqualToAnchor:self.view.trailingAnchor],
-        [_textView.bottomAnchor constraintEqualToAnchor:self.view.bottomAnchor]
+        [_tableView.topAnchor constraintEqualToAnchor:self.view.safeAreaLayoutGuide.topAnchor],
+        [_tableView.leadingAnchor constraintEqualToAnchor:self.view.leadingAnchor],
+        [_tableView.trailingAnchor constraintEqualToAnchor:self.view.trailingAnchor],
+        [_tableView.bottomAnchor constraintEqualToAnchor:self.view.bottomAnchor]
     ]];
     
+    // 点击空白处收起键盘的手势
+    UITapGestureRecognizer *tapGesture = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(dismissKeyboard)];
+    tapGesture.cancelsTouchesInView = NO; // 允许点击事件传递
+    [self.view addGestureRecognizer:tapGesture];
+    
     [self loadLogs];
+}
+
+- (void)dismissKeyboard {
+    [self.view endEditing:YES];
 }
 
 - (void)loadLogs {
@@ -345,7 +441,20 @@ static WYLogFloatingButton *_floatingButton = nil;
     } else {
         _logs = logContent;
     }
-    _textView.text = _logs;
+    
+    // 分割日志条目
+    NSMutableArray *chunks = [NSMutableArray array];
+    NSArray *components = [_logs componentsSeparatedByString:WYLogEntrySeparator];
+    for (NSString *component in components) {
+        NSString *trimmed = [component stringByTrimmingCharactersInSet:[NSCharacterSet whitespaceAndNewlineCharacterSet]];
+        if (trimmed.length > 0) {
+            [chunks addObject:trimmed];
+        }
+    }
+    
+    self.logChunks = chunks;
+    self.filteredLogChunks = chunks;
+    [self.tableView reloadData];
 }
 
 - (void)close {
@@ -358,8 +467,10 @@ static WYLogFloatingButton *_floatingButton = nil;
         return;
     }
     WYLogManager.clearLogFile();
-    _logs = @"";
-    _textView.text = @"日志已清除";
+    _logs = @"日志已清除";
+    self.logChunks = @[];
+    self.filteredLogChunks = @[];
+    [self.tableView reloadData];
 }
 
 - (void)share {
@@ -370,29 +481,72 @@ static WYLogFloatingButton *_floatingButton = nil;
 }
 
 // MARK: - UISearchBarDelegate
+- (void)searchBarTextDidBeginEditing:(UISearchBar *)searchBar {
+    searchBar.showsCancelButton = YES;
+}
+
+- (void)searchBarCancelButtonClicked:(UISearchBar *)searchBar {
+    searchBar.text = @"";
+    [searchBar resignFirstResponder];
+    searchBar.showsCancelButton = NO;
+    self.currentSearchText = @"";
+    self.filteredLogChunks = self.logChunks;
+    [self.tableView reloadData];
+}
+
+- (void)searchBarTextDidEndEditing:(UISearchBar *)searchBar {
+    searchBar.showsCancelButton = NO;
+}
 
 - (void)searchBar:(UISearchBar *)searchBar textDidChange:(NSString *)searchText {
+    self.currentSearchText = searchText;
     if (searchText.length == 0) {
-        _textView.text = _logs;
+        self.filteredLogChunks = self.logChunks;
     } else {
-        // 用日志分隔符分割日志块
-        NSArray *logChunks = [self.logs componentsSeparatedByString:WYLogEntrySeparator];
-        NSMutableArray *matchedChunks = [NSMutableArray array];
-        
-        // 匹配包含搜索词的完整日志块
-        for (NSString *chunk in logChunks) {
+        NSMutableArray *filtered = [NSMutableArray array];
+        for (NSString *chunk in self.logChunks) {
             if ([chunk localizedCaseInsensitiveContainsString:searchText]) {
-                [matchedChunks addObject:chunk];
+                [filtered addObject:chunk];
             }
         }
-        
-        if (matchedChunks.count > 0) {
-            // 重新组合匹配的日志块
-            self.textView.text = [matchedChunks componentsJoinedByString:WYLogEntrySeparator];
-        } else {
-            self.textView.text = @"未找到匹配的日志内容";
-        }
+        self.filteredLogChunks = filtered;
     }
+    [self.tableView reloadData];
+}
+
+// MARK: - UITableViewDataSource
+- (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
+    if (self.filteredLogChunks.count == 0) {
+        return 1;
+    }
+    return self.filteredLogChunks.count;
+}
+
+- (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
+    WYLogCell *cell = [tableView dequeueReusableCellWithIdentifier:@"WYLogCell" forIndexPath:indexPath];
+    
+    if ((self.filteredLogChunks.count == 0) || ([_logs isEqualToString:@"暂无日志"] || [_logs isEqualToString:@"日志已清除"] || _logs.length == 0)) {
+        NSString *message = _logs.length == 0 || [_logs isEqualToString:@"日志已清除"] ? @"日志已清除" : @"未找到匹配的日志内容";
+        [cell configureWithText:message keyword:nil canCopyed:NO];
+        cell.copyAction = nil;
+    } else {
+        NSString *logText = self.filteredLogChunks[indexPath.row];
+        [cell configureWithText:logText keyword:self.currentSearchText canCopyed:YES];
+        
+        __weak typeof(self) weakSelf = self;
+        cell.copyAction = ^{
+            [UIPasteboard generalPasteboard].string = logText;
+            UIAlertController *alert = [UIAlertController alertControllerWithTitle:@"复制成功"
+                                                                           message:@"日志已复制到剪贴板"
+                                                                    preferredStyle:UIAlertControllerStyleAlert];
+            [weakSelf presentViewController:alert animated:YES completion:^{
+                dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(1.0 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
+                    [alert dismissViewControllerAnimated:YES completion:nil];
+                });
+            }];
+        };
+    }
+    return cell;
 }
 
 @end
