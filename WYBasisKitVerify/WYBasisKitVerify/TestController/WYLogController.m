@@ -19,7 +19,7 @@
     // Do any additional setup after loading the view.
     self.view.backgroundColor = [UIColor whiteColor];
     
-    WYLogManager.clearLogFile();
+    //WYLogManager.clearLogFile();
     
     WYLogManager.outputWithMode(AlwaysConsoleOnly, @"非宏定义方法调用", __FILE__, __FUNCTION__, __LINE__);
     
