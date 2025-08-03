@@ -11,6 +11,7 @@
 #import "UIView+WYExtension.h"
 #import "MacroDefinition.h"
 #import "UILabel+WYExtension.h"
+#import "UIApplication+WYExtension.h"
 
 @interface StateView ()
 
@@ -117,7 +118,7 @@ static StateView *_stateView = nil;
         [_stateView removeFromSuperview];
         
         //打开用户交互
-        [UIApplication sharedApplication].keyWindow.userInteractionEnabled = YES;
+        [UIApplication sharedApplication].wy_keyWindow.userInteractionEnabled = YES;
     }];
 }
 
@@ -144,10 +145,10 @@ static StateView *_stateView = nil;
 
         _stateView.imageView.wy_left = (_stateView.wy_width-_stateView.imageView.wy_width)/2;
 
-        _stateView.center = [UIApplication sharedApplication].keyWindow.center;
+        _stateView.center = [UIApplication sharedApplication].wy_keyWindow.center;
         
         //添加到父控制器上
-        [[UIApplication sharedApplication].keyWindow addSubview:_stateView];
+        [[UIApplication sharedApplication].wy_keyWindow addSubview:_stateView];
         
         //设置用户交互
         _stateView.superview.userInteractionEnabled = _stateView.userEnabled;

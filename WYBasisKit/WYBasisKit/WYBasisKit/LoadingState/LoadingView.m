@@ -10,6 +10,7 @@
 #import "NSString+WYExtension.h"
 #import "UIView+WYExtension.h"
 #import "MacroDefinition.h"
+#import "UIApplication+WYExtension.h"
 
 @interface LoadingView ()
 
@@ -112,7 +113,7 @@ static LoadingView *_loadingView = nil;
     
     if(superView == nil) {
         
-        superView = ([self wy_currentViewController].view == nil) ? [UIApplication sharedApplication].keyWindow : [self wy_currentViewController].view;
+        superView = ([self wy_currentViewController].view == nil) ? [UIApplication sharedApplication].wy_keyWindow : [self wy_currentViewController].view;
     }
     
     //防止弹窗时键盘挡住自己

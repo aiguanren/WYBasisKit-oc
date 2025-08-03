@@ -58,9 +58,6 @@
 ///cell高
 #define wy_cellHeigth      (self.bounds.size.height)
 
-///keyWindow
-#define wy_keywindow          [UIApplication sharedApplication].keyWindow
-
 //颜色方法简写
 ///颜色随机
 #define wy_randomColor        [UIColor colorWithRed:arc4random()%256/255.0 green:arc4random()%256/255.0 blue:arc4random()%256/255.0 alpha:1.0]
