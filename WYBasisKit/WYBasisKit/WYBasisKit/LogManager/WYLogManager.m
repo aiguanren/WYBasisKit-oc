@@ -6,7 +6,6 @@
 //
 
 #import "WYLogManager.h"
-#import <UIKit/UIKit.h>
 #import "UIApplication+WYExtension.h"
 
 // 悬浮按钮
