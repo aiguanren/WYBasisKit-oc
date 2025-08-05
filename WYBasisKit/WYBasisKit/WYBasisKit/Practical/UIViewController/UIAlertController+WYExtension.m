@@ -9,6 +9,7 @@
 #import "UIAlertController+WYExtension.h"
 #import "UIViewController+WYAlert.h"
 #import <objc/runtime.h>
+#import "UIApplication+WYExtension.h"
 
 @interface UIAlertController ()<UIGestureRecognizerDelegate>
 
@@ -20,7 +21,7 @@
 
 - (void)wy_clickBlankCloseAlert:(void (^)(void))completion {
     
-    NSArray *arrayViews = [UIApplication sharedApplication].keyWindow.subviews;
+    NSArray *arrayViews = [UIApplication sharedApplication].wy_keyWindow.subviews;
     
     if (arrayViews.count > 0) {
     //array会有两个对象，一个是UILayoutContainerView，另外一个是UITransitionView，我们找到最后一个

@@ -7,6 +7,7 @@
 
 #import "WYLogManager.h"
 #import <UIKit/UIKit.h>
+#import "UIApplication+WYExtension.h"
 
 // 悬浮按钮
 @interface WYLogFloatingButton : UIButton
@@ -216,24 +217,11 @@ static WYLogFloatingButton *_floatingButton = nil;
  * @param contentView 预览按钮的父控件，(如果不传则为keyWindow，等价于showPreview方法)
  */
 + (void)showPreviewInView:(UIView *)contentView {
-    if (_floatingButton) return;
+    if (_floatingButton) return; // 防止重复创建预览组件和页面
     
     UIView *targetView = contentView;
     if (!targetView) {
-        targetView = [UIApplication sharedApplication].keyWindow;
-    }
-    if (!targetView) {
-        // 尝试获取任意窗口
-        NSArray *windows = [UIApplication sharedApplication].windows;
-        for (UIWindow *window in windows) {
-            if (window.isKeyWindow) {
-                targetView = window;
-                break;
-            }
-        }
-        if (!targetView && windows.count > 0) {
-            targetView = windows.firstObject;
-        }
+        targetView = [UIApplication sharedApplication].wy_keyWindow;
     }
     if (!targetView) return;
     
@@ -559,7 +547,7 @@ static WYLogFloatingButton *_floatingButton = nil;
     UINavigationController *nav = [[UINavigationController alloc] initWithRootViewController:vc];
     nav.modalPresentationStyle = UIModalPresentationFormSheet;
     
-    UIViewController *rootVC = [UIApplication sharedApplication].keyWindow.rootViewController;
+    UIViewController *rootVC = [UIApplication sharedApplication].wy_keyWindow.rootViewController;
     [rootVC presentViewController:nav animated:YES completion:nil];
 }
 

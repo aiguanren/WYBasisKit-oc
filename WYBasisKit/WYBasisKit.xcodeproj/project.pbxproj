@@ -70,6 +70,7 @@
 		587CE14A2E093A4000929E1D /* Loading.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 587CE0C82E093A4000929E1D /* Loading.bundle */; };
 		58E98C2B2E34A32100936A80 /* WYLogManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 58E98C2A2E34A32100936A80 /* WYLogManager.m */; };
 		58E98C322E34DFEE00936A80 /* WYEventHandler.m in Sources */ = {isa = PBXBuildFile; fileRef = 58E98C312E34DFEE00936A80 /* WYEventHandler.m */; };
+		AA1AF6EF2E3F338D00E3B26A /* UIApplication+WYExtension.m in Sources */ = {isa = PBXBuildFile; fileRef = AA1AF6EE2E3F338D00E3B26A /* UIApplication+WYExtension.m */; };
 		AAC3427F2E1BE10C0043CC0B /* NSObject+WYArchived.m in Sources */ = {isa = PBXBuildFile; fileRef = AAC3427E2E1BE10B0043CC0B /* NSObject+WYArchived.m */; };
 		D55B09F221EFCA1626ABD695 /* Pods_WYBasisKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 007E002CFC3236A0D4CDC27B /* Pods_WYBasisKit.framework */; };
 /* End PBXBuildFile section */
@@ -202,6 +203,8 @@
 		58E98C2A2E34A32100936A80 /* WYLogManager.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = WYLogManager.m; sourceTree = "<group>"; };
 		58E98C302E34DFEE00936A80 /* WYEventHandler.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = WYEventHandler.h; sourceTree = "<group>"; };
 		58E98C312E34DFEE00936A80 /* WYEventHandler.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = WYEventHandler.m; sourceTree = "<group>"; };
+		AA1AF6ED2E3F338D00E3B26A /* UIApplication+WYExtension.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "UIApplication+WYExtension.h"; sourceTree = "<group>"; };
+		AA1AF6EE2E3F338D00E3B26A /* UIApplication+WYExtension.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "UIApplication+WYExtension.m"; sourceTree = "<group>"; };
 		AAC3427D2E1BE10B0043CC0B /* NSObject+WYArchived.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "NSObject+WYArchived.h"; sourceTree = "<group>"; };
 		AAC3427E2E1BE10B0043CC0B /* NSObject+WYArchived.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "NSObject+WYArchived.m"; sourceTree = "<group>"; };
 		BFF0DDDD6D4530AA1B323E27 /* Pods-WYBasisKit.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-WYBasisKit.release.xcconfig"; path = "Target Support Files/Pods-WYBasisKit/Pods-WYBasisKit.release.xcconfig"; sourceTree = "<group>"; };
@@ -681,6 +684,7 @@
 		587CE10D2E093A4000929E1D /* Practical */ = {
 			isa = PBXGroup;
 			children = (
+				AA1AF6EC2E3F336C00E3B26A /* UIApplication */,
 				587CE0E42E093A4000929E1D /* NSArray */,
 				587CE0E72E093A4000929E1D /* NSDecimalNumber */,
 				587CE0EA2E093A4000929E1D /* NSMutableAttributedString */,
@@ -760,6 +764,15 @@
 				007E002CFC3236A0D4CDC27B /* Pods_WYBasisKit.framework */,
 			);
 			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		AA1AF6EC2E3F336C00E3B26A /* UIApplication */ = {
+			isa = PBXGroup;
+			children = (
+				AA1AF6ED2E3F338D00E3B26A /* UIApplication+WYExtension.h */,
+				AA1AF6EE2E3F338D00E3B26A /* UIApplication+WYExtension.m */,
+			);
+			path = UIApplication;
 			sourceTree = "<group>";
 		};
 		F9222D12590B30BF57AC84C3 /* Pods */ = {
@@ -938,6 +951,7 @@
 				587CE13F2E093A4000929E1D /* UINavigationController+WYExtension.m in Sources */,
 				587CE1402E093A4000929E1D /* LocalStorage.m in Sources */,
 				587CE1412E093A4000929E1D /* WYBoolJudge.m in Sources */,
+				AA1AF6EF2E3F338D00E3B26A /* UIApplication+WYExtension.m in Sources */,
 				587CE1422E093A4000929E1D /* CALayer+WYExtension.m in Sources */,
 				587CE1432E093A4000929E1D /* WYPagingView.m in Sources */,
 				587CE1442E093A4000929E1D /* UIColor+WYExtension.m in Sources */,

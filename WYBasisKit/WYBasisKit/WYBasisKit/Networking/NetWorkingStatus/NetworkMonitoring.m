@@ -8,6 +8,7 @@
 
 #import "NetworkMonitoring.h"
 #import "Reachability.h"
+#import "UIApplication+WYExtension.h"
 #import <UIKit/UIKit.h>
 
 @interface NetworkMonitoring ()
@@ -138,7 +139,7 @@ static NetworkMonitoring *_networkMonitoring = nil;
                 [_alertAction addAction:action];
             }
             _alertAction.message = [self networkStatusDescription:currentNetworkStatus];
-            [[UIApplication sharedApplication].keyWindow.rootViewController presentViewController:_alertAction animated:YES completion:nil];
+            [[UIApplication sharedApplication].wy_keyWindow.rootViewController presentViewController:_alertAction animated:YES completion:nil];
             
             break;
         }
