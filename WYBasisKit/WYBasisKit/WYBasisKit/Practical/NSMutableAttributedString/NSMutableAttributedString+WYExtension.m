@@ -19,7 +19,8 @@
     CGRect boundingRect = [self boundingRectWithSize:maxSize
                                                        options:NSStringDrawingUsesLineFragmentOrigin | NSStringDrawingUsesFontLeading
                                                        context:nil];
-    return CGRectGetWidth(boundingRect);  // 返回计算得到的宽度
+    
+    return ceil(CGRectGetWidth(boundingRect));  // 返回计算得到的宽度
 }
 
 /** 计算富文本显示需要的高度 */
@@ -30,7 +31,7 @@
     CGRect boundingRect = [self boundingRectWithSize:maxSize
                                                        options:NSStringDrawingUsesLineFragmentOrigin | NSStringDrawingUsesFontLeading
                                                        context:nil];
-    return CGRectGetHeight(boundingRect);  // 返回计算得到的高度
+    return ceil(CGRectGetHeight(boundingRect));  // 返回计算得到的高度
 }
 
 @end

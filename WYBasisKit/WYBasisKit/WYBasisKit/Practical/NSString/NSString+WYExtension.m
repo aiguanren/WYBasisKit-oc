@@ -56,7 +56,7 @@
                                      attributes:attribute
                                         context:nil].size;
     
-    return retSize;
+    return CGSizeMake(ceil(retSize.width), ceil(retSize.height));
 }
 
 /** 获取每行显示的文本及显示完整总共需要的行数 */
