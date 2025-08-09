@@ -3,6 +3,7 @@ inhibit_all_warnings!
 use_frameworks!
 #use_frameworks! :linkage => :static：
 use_modular_headers!
+install! 'cocoapods', warn_for_unused_master_specs_repo: false
 
 # 使用Cocoapods清华源
 source 'https://mirrors.tuna.tsinghua.edu.cn/git/CocoaPods/Specs.git'
@@ -11,7 +12,7 @@ source 'https://mirrors.tuna.tsinghua.edu.cn/git/CocoaPods/Specs.git'
 #source 'https://github.com/CocoaPods/Specs.git'
 
 # 加载脚本管理器
-require_relative 'PodFileScripts/Podfile'
+require_relative 'Scripts/PodFileConfig/Podfile'
 
 # 选择设置选项（三选一）
 # configure_settings_option(SETTING_OPTIONS[:pods_only])    # 只设置Pods项目
@@ -50,6 +51,12 @@ target 'WYBasisKitVerify' do
   end
 end
 
+# 准备执行pod命令(执行pod命令前的处理)
+pre_install do |installer|
+  
+end
+
+# 结束执行pod命令(执行pod命令后的处理)
 post_install do |installer|
   apply_selected_settings(installer)
 end
