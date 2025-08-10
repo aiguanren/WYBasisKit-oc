@@ -31,7 +31,7 @@ def replace_kit_path(podspec_path, new_value):
 
 def parse_subspecs(podspec_path):
     """
-    解析 podspec 文件中的 subspec 名称，支持多层嵌套。
+    解析 podspec 文件中的 subspec 名称，支持多层嵌套，并忽略注释掉的 subspec。
     返回 subspec 名称列表，格式类似 ["Config", "Config/Sub1", ...]
     """
     subspecs = []
@@ -41,14 +41,20 @@ def parse_subspecs(podspec_path):
     with open(podspec_path, "r", encoding="utf-8") as f:
         lines = f.readlines()
 
-    for line in lines:
-        line = line.strip()
+    for raw_line in lines:
+        line = raw_line.strip()
+
+        # 忽略整行注释或.subspec前有#的情况
+        if line.startswith("#") or re.match(r'.*#.*\.subspec', line):
+            continue
+
         m = pattern.search(line)
         if m:
             name = m.group(1)
             stack.append(name)
             subspecs.append("/".join(stack))
             continue
+
         if line == "end" and stack:
             stack.pop()
 
