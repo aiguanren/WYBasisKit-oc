@@ -24,7 +24,7 @@ Pod::Spec.new do |kit|
    kit.ios.deployment_target = "13.0"
    kit.source       = { :git => "https://github.com/aiguanren/WYBasisKit-oc.git", :tag => "#{kit.version}" }
    #kit.source       = { :svn => "http://192.168.xxx.xxx:xxxx/xxx/xxx/WYBasiskit"}
-   kit.source_files  = "**/*.{swift,h,m}"
+   kit.source_files  = "#{kit_path}**/*.{swift,h,m}"
    kit.resources = ["#{kit_path}LoadingState/Loading.bundle"]
    kit.resource_bundles = {"WYBasisKit" => ["#{kit_path}PrivacyInfo.xcprivacy"]}
    kit.requires_arc = true
