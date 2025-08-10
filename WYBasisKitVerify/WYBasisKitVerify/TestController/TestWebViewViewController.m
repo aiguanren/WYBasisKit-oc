@@ -7,7 +7,7 @@
 //
 
 #import "TestWebViewViewController.h"
-@import WYBasisKit_oc;
+@import WYBasisKitOC;
 
 @interface TestWebViewViewController ()
 

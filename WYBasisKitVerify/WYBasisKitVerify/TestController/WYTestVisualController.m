@@ -8,7 +8,7 @@
 
 #import "WYTestVisualController.h"
 #import <Masonry/Masonry.h>
-@import WYBasisKit_oc;
+@import WYBasisKitOC;
 
 @interface WYTestVisualController ()
 

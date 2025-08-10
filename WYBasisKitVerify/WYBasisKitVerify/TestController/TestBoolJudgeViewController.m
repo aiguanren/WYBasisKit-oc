@@ -7,7 +7,7 @@
 //
 
 #import "TestBoolJudgeViewController.h"
-@import WYBasisKit_oc;
+@import WYBasisKitOC;
 
 @interface TestBoolJudgeViewController ()
 

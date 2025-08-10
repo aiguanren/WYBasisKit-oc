@@ -7,7 +7,7 @@
 //
 
 #import "TestUIAlertController.h"
-@import WYBasisKit_oc;
+@import WYBasisKitOC;
 
 @interface TestUIAlertController ()
 

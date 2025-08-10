@@ -7,7 +7,7 @@
 //
 
 #import "TestLableViewController.h"
-@import WYBasisKit_oc;
+@import WYBasisKitOC;
 
 @interface TestLableViewController ()<WYRichTextDelegate>
 

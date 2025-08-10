@@ -9,7 +9,7 @@
 #import "MainViewController.h"
 #import "NSString+WYExtension.h"
 #import "UITableViewCell+WYExtension.h"
-@import WYBasisKit_oc;
+@import WYBasisKitOC;
 
 @interface MainViewController ()<UITableViewDelegate,UITableViewDataSource>
 

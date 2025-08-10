@@ -7,7 +7,7 @@
 //
 
 #import "TestTextViewViewController.h"
-@import WYBasisKit_oc;
+@import WYBasisKitOC;
 
 @interface TestTextViewViewController ()
 

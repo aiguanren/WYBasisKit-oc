@@ -14,6 +14,9 @@ source 'https://mirrors.tuna.tsinghua.edu.cn/git/CocoaPods/Specs.git'
 # 加载脚本管理器
 require_relative 'Scripts/PodFileConfig/Podfile'
 
+# 执行本地验证或者pod命令的时候需要把podspec里面kit_path设置为 ""(空) 才能正确加载代码、资源等文件路径
+modify_kit_path_in_podspec("./WYBasisKit/WYBasisKit/WYBasisKit/WYBasisKit-swift.podspec", "", false)
+
 # 选择设置选项（三选一）
 # configure_settings_option(SETTING_OPTIONS[:pods_only])    # 只设置Pods项目
 # configure_settings_option(SETTING_OPTIONS[:user_only])    # 只设置用户项目
@@ -28,8 +31,15 @@ target 'WYBasisKit' do
   project 'WYBasisKit/WYBasisKit.xcodeproj' # 多个项目时需要指定target对应的xcodeproj文件
   pod 'AFNetworking'
   pod 'MJRefresh'
-  pod 'PureCamera'
   pod 'Masonry'
+
+  # 图片裁剪库
+  pod 'PureCamera'
+  pod 'LEGOImageCropper'
+  
+  # 直播/视频播放器(基于IJK编写优化)
+  pod "FSPlayer", :podspec => 'https://github.com/debugly/fsplayer/releases/download/1.0.2/FSPlayer.spec.json'
+  
   # 根据Xcode版本号指定三方库的版本号
   if xcode_version_less_than_or_equal_to(14, 2)
     pod 'SDWebImage', '5.20.1'
@@ -59,4 +69,5 @@ end
 # 结束执行pod命令(执行pod命令后的处理)
 post_install do |installer|
   apply_selected_settings(installer)
+  restore_kit_path_in_podspec(false)
 end

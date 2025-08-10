@@ -7,7 +7,7 @@
 //
 
 #import "TestUserAvatarViewController.h"
-@import WYBasisKit_oc;
+@import WYBasisKitOC;
 
 @interface TestUserAvatarViewController ()
 

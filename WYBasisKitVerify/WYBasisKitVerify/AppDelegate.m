@@ -8,7 +8,7 @@
 
 #import "AppDelegate.h"
 #import "MainViewController.h"
-@import WYBasisKit_oc;
+@import WYBasisKitOC;
 
 @interface AppDelegate ()
 

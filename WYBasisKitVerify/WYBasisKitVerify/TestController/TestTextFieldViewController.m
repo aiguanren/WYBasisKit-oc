@@ -7,7 +7,7 @@
 //
 
 #import "TestTextFieldViewController.h"
-@import WYBasisKit_oc;
+@import WYBasisKitOC;
 
 @interface TestTextFieldViewController ()
 
