@@ -1,0 +1,6 @@
+framework module PureCamera {
+  umbrella header "PureCamera-umbrella.h"
+
+  export *
+  module * { export * }
+}

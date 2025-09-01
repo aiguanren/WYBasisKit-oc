@@ -1,0 +1,6 @@
+framework module FSPlayer {
+  umbrella header "FSPlayer.h"
+  export *
+
+  module * { export * }
+}
