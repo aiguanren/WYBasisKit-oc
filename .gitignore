@@ -1,42 +1,92 @@
-# 系统文件
-.DS_Store
-*/.DS_Store
-*.swp
-*.lock
+# 系统文件（不需要版本控制的系统生成文件）
+**/.DS_Store           # macOS 系统自动生成的文件（包含所有子目录）
+*.swp                  # Vim 等编辑器生成的临时交换文件
+*.lock                 # 锁文件（例如依赖管理时生成的）
 
 
-# Xcode 用户文件
-xcuserdata
-xcuserdata/
-*.xcuserstate
-UserInterface.xcuserstate
-UserInterfaceState.xcuserstate
+# Xcode 用户个人配置文件（不应提交到版本库）
+**/xcuserdata/         # 忽略所有层级下的 Xcode 用户数据文件夹
+**/*.xcuserstate       # 忽略所有层级下的 Xcode 界面状态文件
 
 
-# Xcode 工作区和项目文件
-*.xcworkspace/
-project.xcworkspace/
+# Xcode 工作区
+project.xcworkspace/   # Xcode 工程工作区
+playground.xcworkspace # Swift Playground 工作区
+*.xcworkspace/         # Xcode 工作区文件夹
 
 
-# 构建产物
-build/
-DerivedData/
-*.ipa
-*.dSYM.zip
-*.dSYM
+# Xcode 构建产物（编译后生成，可随时重新生成）
+build/                 # Xcode 默认编译产物目录
+DerivedData/           # Xcode 编译缓存和索引文件
+*.ipa                  # iOS 应用安装包
+*.dSYM.zip             # 调试符号压缩包
+*.dSYM                 # 调试符号文件
+*.hmap                 # Xcode 生成的头文件映射（索引文件，不需要版本控制）
 
 
-# 日志和缓存
-*.log
-npm-debug.log*
-yarn-debug.log*
-yarn-error.log*
+# JetBrains / 其他 IDE 配置
+.idea/                 # JetBrains IDE（如 AppCode）生成的项目配置目录
 
 
-# 依赖和框架
-Pods/
-Carthage/
-IJKMediaPlayer.framework/
-IJKMediaPlayer.xcframework/
-WYMediaPlayerFramework/
-vendor/
+# Node.js 依赖
+node_modules/          # Node.js 项目的依赖目录（通过 npm/yarn/pnpm install 可重新获取）
+
+
+# Xcode 文件移动或重命名时的临时文件
+*.moved-aside          # Xcode 自动生成的临时文件
+
+
+# Xcode 源代码控制配置
+.xccheckout            # Xcode 的源代码控制配置文件（不需要纳入版本控制）
+
+
+# Xcode 界面和调试配置文件
+!default.perspectivev3 # 保留默认的工作区布局文件
+*.perspectivev3        # 忽略其他非默认的工作区布局文件
+!default.mode2v3       # 保留默认的工作区模式文件（mode2）
+*.mode2v3              # 忽略其他非默认的工作区模式文件（mode2）
+!default.mode1v3       # 保留默认的工作区模式文件（mode1）
+*.mode1v3              # 忽略其他非默认的工作区模式文件（mode1）
+!default.pbxuser       # 保留默认的用户项目文件
+*.pbxuser              # 忽略其他非默认的用户项目文件
+
+
+# 日志和缓存文件
+*.log                  # 通用日志文件
+npm-debug.log*         # npm 运行时生成的调试日志
+yarn-debug.log*        # yarn 调试日志
+yarn-error.log*        # yarn 错误日志
+
+
+# Swift Package Manager
+.build/                # SwiftPM 构建输出目录
+.swiftpm/              # SwiftPM 项目配置和本地状态目录
+
+
+# Fastlane 自动化工具生成的文件
+fastlane/report.xml
+fastlane/Preview.html
+fastlane/screenshots/
+fastlane/test_output/
+
+
+# Playground 文件
+timeline.xctimeline    # Swift Playground 时间轴文件
+playground.xcworkspace # Playground 工作区文件
+
+
+# 临时文件
+*.tmp                  # 临时文件
+*.temp                 # 临时文件
+
+
+# 依赖和第三方框架（由依赖管理工具生成）
+Pods/                  # CocoaPods 下载的依赖目录（由 Podfile 指定的依赖生成，可通过 pod install 重新获取）
+Carthage/Build/        # Carthage 编译产物目录（由 Cartfile 指定的依赖编译生成，可通过 carthage build 重新生成）
+Carthage/Checkouts/    # Carthage 下载的依赖源码目录（由 Cartfile 指定的依赖源码，可通过 carthage bootstrap 重新获取）
+vendor/                # 其他依赖管理工具（如 Composer、Bundler、Go vendor）生成的依赖目录，可通过依赖配置文件重新安装
+
+
+# 禁止忽略文件（这里列出的文件不受 *.lock 规则影响，不会被通配符标记的忽略文件忽略）
+!Podfile.lock          # 保留 Podfile.lock
+!Gemfile.lock          # 保留 Gemfile.lock
