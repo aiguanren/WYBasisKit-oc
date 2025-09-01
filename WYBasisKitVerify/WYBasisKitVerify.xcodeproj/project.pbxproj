@@ -191,7 +191,6 @@
 				587CDFDD2E092EE500929E1D /* Frameworks */,
 				587CDFDE2E092EE500929E1D /* Resources */,
 				8FE530AFEEADBCA3F7BC1516 /* [CP] Embed Pods Frameworks */,
-				4A5CD3E630656EC523731D58 /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -247,23 +246,6 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXShellScriptBuildPhase section */
-		4A5CD3E630656EC523731D58 /* [CP] Copy Pods Resources */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputFileListPaths = (
-				"${PODS_ROOT}/Target Support Files/Pods-WYBasisKitVerify/Pods-WYBasisKitVerify-resources-${CONFIGURATION}-input-files.xcfilelist",
-			);
-			name = "[CP] Copy Pods Resources";
-			outputFileListPaths = (
-				"${PODS_ROOT}/Target Support Files/Pods-WYBasisKitVerify/Pods-WYBasisKitVerify-resources-${CONFIGURATION}-output-files.xcfilelist",
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-WYBasisKitVerify/Pods-WYBasisKitVerify-resources.sh\"\n";
-			showEnvVarsInLog = 0;
-		};
 		6C69483A1F27963B8A55910A /* [CP] Check Pods Manifest.lock */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;

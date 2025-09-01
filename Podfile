@@ -15,7 +15,7 @@ source 'https://mirrors.tuna.tsinghua.edu.cn/git/CocoaPods/Specs.git'
 require_relative 'Scripts/PodFileConfig/Podfile'
 
 # 执行本地验证或者pod命令的时候需要把podspec里面kit_path设置为 ""(空) 才能正确加载代码、资源等文件路径
-modify_kit_path_in_podspec("./WYBasisKit/WYBasisKit/WYBasisKit/WYBasisKit-swift.podspec", "", false)
+modify_kit_path_in_podspec("./WYBasisKit/WYBasisKit/WYBasisKit/WYBasisKit-oc.podspec", "", false)
 
 # 选择设置选项（三选一）
 # configure_settings_option(SETTING_OPTIONS[:pods_only])    # 只设置Pods项目
